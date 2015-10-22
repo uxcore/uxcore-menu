@@ -10,7 +10,7 @@
 
  @menu-prefix-cls: kuma-menu;
 
-.@{menu-prefix-cls} {
+ .@{menu-prefix-cls} {
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -85,7 +85,7 @@
 
     // Disabled state sets text to gray and nukes hover/tab effects
     &.@{menu-prefix-cls}-item-disabled, &.@{menu-prefix-cls}-submenu-disabled {
-      color: @text-color !important;
+ 	 color: @text-color !important;
     }
   }
   & > &-item-divider {
@@ -101,54 +101,54 @@
     position: relative;
 
     > .@{menu-prefix-cls} {
-      display: none;
-      background-color: #fff;
+ 	 display: none;
+ 	 background-color: #fff;
     }
 
     &-vertical > .@{menu-prefix-cls}-submenu-title:after {
-      font-family: "kuma" !important;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      position: absolute;
-      transition: transform .3s ease;
-      content: "\e643";
-      right: 16px;
+ 	 font-family: "kuma" !important;
+ 	 font-style: normal;
+ 	 vertical-align: baseline;
+ 	 text-align: center;
+ 	 text-transform: none;
+ 	 text-rendering: auto;
+ 	 position: absolute;
+ 	 transition: transform .3s ease;
+ 	 content: "\e643";
+ 	 right: 16px;
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title:after {
-      font-family: "kuma" !important;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      position: absolute;
-      transition: transform .3s ease;
-      content: "\e642";
-      right: 16px;
-      top: 0;
+ 	 font-family: "kuma" !important;
+ 	 font-style: normal;
+ 	 vertical-align: baseline;
+ 	 text-align: center;
+ 	 text-transform: none;
+ 	 text-rendering: auto;
+ 	 position: absolute;
+ 	 transition: transform .3s ease;
+ 	 content: "\e642";
+ 	 right: 16px;
+ 	 top: 0;
     }
 
     &-open {
-      > .@{menu-prefix-cls} {
-        display: block;
-      }
-      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-        transform: rotate(180deg);
-      }
+ 	 > .@{menu-prefix-cls} {
+ 	   display: block;
+ 	 }
+ 	 &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
+ 	   transform: rotate(180deg);
+ 	 }
 
     }
   }
 
   .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
     .kuma-icon {
-      width: 14px;
-      margin-right: 8px;
-      top: -1px;
-      color: @text-color;
+ 	 width: 14px;
+ 	 margin-right: 8px;
+ 	 top: -1px;
+ 	 color: @text-color;
     }
   }
 
@@ -161,60 +161,60 @@
 
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 20px;
-      line-height: 50px;
-      position: relative;
-      top: 1px;
-      > a {
-        display: block;
-        color: @text-color;
-        &:hover {
-          color: @brand-primary;
-        }
-        &:before, &:after {
-          position: absolute;
-          background-color: rgba(255, 255, 255, 0.001);
-          width: 20px;
-          height: 50px;
-          content: '';
-        }
-        &:before {
-          left: 0;
-        }
-      }
+ 	 padding: 0 20px;
+ 	 line-height: 50px;
+ 	 position: relative;
+ 	 top: 1px;
+ 	 > a {
+ 	   display: block;
+ 	   color: @text-color;
+ 	   &:hover {
+ 		 color: @brand-primary;
+ 	   }
+ 	   &:before, &:after {
+ 		 position: absolute;
+ 		 background-color: rgba(255, 255, 255, 0.001);
+ 		 width: 20px;
+ 		 height: 50px;
+ 		 content: '';
+ 	   }
+ 	   &:before {
+ 		 left: 0;
+ 	   }
+ 	 }
     }
 
     & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
-      float: left;
-      border-bottom: 2px solid transparent;
-      margin-right: 24px;
+ 	 float: left;
+ 	 border-bottom: 2px solid transparent;
+ 	 margin-right: 24px;
 
-      &-active,
-      &-selected {
-        border-bottom: 2px solid @brand-primary;
-        background-color: #FBFBFB;
-        color: @brand-primary;
-        .kuma-icon {
-          color: @brand-primary;
-        }
-      }
+ 	 &-active,
+ 	 &-selected {
+ 	   border-bottom: 2px solid @brand-primary;
+ 	   background-color: #FBFBFB;
+ 	   color: @brand-primary;
+ 	   .kuma-icon {
+ 		 color: @brand-primary;
+ 	   }
+ 	 }
     }
 
     &:after {
-      content: "\20";
-      display: block;
-      height: 0;
-      clear: both;
+ 	 content: "\20";
+ 	 display: block;
+ 	 height: 0;
+ 	 clear: both;
     }
   }
 
   &-vertical, &-inline {
     padding: 12px 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 24px;
-      font-size: 12px;
-      line-height: 42px;
-      height: 42px;
+ 	 padding: 0 24px;
+ 	 font-size: 12px;
+ 	 line-height: 42px;
+ 	 height: 42px;
     }
   }
 
@@ -222,7 +222,7 @@
     padding: 0;
     transform-origin: 0 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu {
-      transform-origin: 0 0;
+ 	 transform-origin: 0 0;
     }
   }
 
@@ -231,18 +231,18 @@
     border: none;
     overflow: hidden;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      line-height: 34px;
-      height: 34px;
-      list-style-type: disc;
-      list-style-position: inside;
+ 	 line-height: 34px;
+ 	 height: 34px;
+ 	 list-style-type: disc;
+ 	 list-style-position: inside;
     }
   }
-}
+ }
 
-.@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
+ .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
   .kuma-icon {
     width: 14px;
     margin-right: 8px;
     top: -1px;
   }
-}
+ }
