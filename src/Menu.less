@@ -13,9 +13,9 @@
   padding-left: 0; // Override default ul/ol
   list-style: none;
   z-index: 1001;
-  border: 1px solid @border-base;
-  color: @text-color;
-  background: #fff;
+  border: none;
+  color: #adadad;
+  background: transparent;
 
   &-item-group-list {
     margin: 0;
@@ -42,19 +42,20 @@
   &-inline > &-item-active,
   &-submenu-inline&-submenu-active,
   &-submenu-inline&-submenu-active > &-submenu-title:hover {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: @white;
   }
 
   &-inline > &-item-active:hover,
   &-item-active,
   &-submenu-active,
   &-submenu-inline&-submenu-active > &-submenu-title:hover {
-    background-color: tint(@brand-primary, 90%);
+    background-color: rgba(255, 255, 255, 0.06);
   }
 
   &-item-selected {
-    background-color: tint(@brand-primary, 90%);
-    color: @brand-primary;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: @white;
   }
 
   & > li&-submenu {
@@ -104,34 +105,7 @@
 
     > .@{menu-prefix-cls} {
  	 display: none;
- 	 background-color: #fff;
-    }
-
-    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
- 	 font-family: "kuma" !important;
- 	 font-style: normal;
- 	 vertical-align: baseline;
- 	 text-align: center;
- 	 text-transform: none;
- 	 text-rendering: auto;
- 	 position: absolute;
- 	 transition: transform .3s ease;
- 	 content: "\e643";
- 	 right: 16px;
-    }
-
-    &-inline > .@{menu-prefix-cls}-submenu-title:after {
- 	 font-family: "kuma" !important;
- 	 font-style: normal;
- 	 vertical-align: baseline;
- 	 text-align: center;
- 	 text-transform: none;
- 	 text-rendering: auto;
- 	 position: absolute;
- 	 transition: transform .3s ease;
- 	 content: "\e642";
- 	 right: 16px;
- 	 top: 0;
+ 	 background-color: transparent; 
     }
 
     &-open {
@@ -150,28 +124,30 @@
  	 width: 14px;
  	 margin-right: 8px;
  	 top: -1px;
- 	 color: @text-color;
+ 	 color: @white;
     }
   }
 
   &-horizontal {
-    background-color: #FBFBFB;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid @border-base;
     padding-left: 24px;
     z-index: 0;
 
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
- 	 padding: 0 20px;
- 	 line-height: 50px;
+ 	 padding: 0 16px;
+   border-radius: 2px;
+ 	 line-height: 32px;
+   font-size: 14px;
+   color: @white;
  	 position: relative;
  	 top: 1px;
  	 > a {
  	   display: block;
- 	   color: @text-color;
+ 	   color: @white;
  	   &:hover {
- 		 color: @brand-primary;
+ 		 color: @white;
  	   }
  	   &:before, &:after {
  		 position: absolute;
@@ -188,16 +164,17 @@
 
     & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
  	 float: left;
- 	 border-bottom: 2px solid transparent;
- 	 margin-right: 24px;
+ 	 margin-right: 4px;
+   border-bottom: none;
 
  	 &-active,
  	 &-selected {
- 	   border-bottom: 2px solid @brand-primary;
- 	   background-color: #FBFBFB;
- 	   color: @brand-primary;
+    border-bottom: none;
+ 	   background-color: rgba(255, 255, 255, 0.24);
+     font-size: 14px;
+ 	   color: @white;
  	   .kuma-icon {
- 		 color: @brand-primary;
+ 		 color: @white;
  	   }
  	 }
     }
@@ -213,10 +190,10 @@
   &-vertical, &-inline {
     padding: 12px 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
- 	 padding: 0 24px;
+ 	 padding: 0 40px;
  	 font-size: 12px;
- 	 line-height: 42px;
- 	 height: 42px;
+ 	 line-height: 40px;
+ 	 height: 40px;
     }
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
         font-size: 14px;
