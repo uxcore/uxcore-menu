@@ -17,19 +17,19 @@
   color: #adadad;
   background: transparent;
 
-  &-item-group-list {
+  .@{menu-prefix-cls}-item-group-list {
     margin: 0;
     padding: 0;
   }
 
-  &-item-group-title {
+  .@{menu-prefix-cls}-item-group-title {
     color: @text-color;
     line-height: 1.5;
     padding: 8px 10px;
     border-bottom: 1px solid #dedede;
   }
 
-  &-item {
+  .@{menu-prefix-cls}-item {
     cursor: pointer;
     transition: all 0.3s ease;
     a {
@@ -39,17 +39,18 @@
     }
   }
 
-  &-inline > &-item-active,
-  &-submenu-inline&-submenu-active,
-  &-submenu-inline&-submenu-active > &-submenu-title:hover {
-    background-color: rgba(255, 255, 255, 0.06);
+  &-inline > .@{menu-prefix-cls}-item-active,
+  &-submenu-inline.@{menu-prefix-cls}-submenu-active,
+  &-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
+    background-image: linear-gradient(-180deg, #ea681b 0%, #f37327 100%);
+    box-shadow: inset 0px 2px 3px 0px #d5601a;
     color: @white;
   }
 
-  &-inline > &-item-active:hover,
+  &-inline > .@{menu-prefix-cls}-item-active:hover,
   &-item-active,
   &-submenu-active,
-  &-submenu-inline&-submenu-active > &-submenu-title:hover {
+  &-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
     background-color: rgba(255, 255, 255, 0.06);
   }
 
@@ -80,7 +81,7 @@
     margin-left: 4px;
   }
 
-  &-item, &-submenu-title {
+  &-item, .@{menu-prefix-cls}-submenu-title {
     margin: 0;
     position: relative;
     display: block;
@@ -88,10 +89,10 @@
 
     // Disabled state sets text to gray and nukes hover/tab effects
     &.@{menu-prefix-cls}-item-disabled, &.@{menu-prefix-cls}-submenu-disabled {
- 	 color: @text-color !important;
+ 	    color: @text-color !important;
     }
   }
-  & > &-item-divider {
+  & > .@{menu-prefix-cls}-item-divider {
     height: 1px;
     margin: 1px 0;
     overflow: hidden;
@@ -104,18 +105,17 @@
     position: relative;
 
     > .@{menu-prefix-cls} {
- 	 display: none;
- 	 background-color: transparent; 
+   	  display: none;
+   	  background-color: transparent;
     }
 
     &-open {
- 	 > .@{menu-prefix-cls} {
- 	   display: block;
- 	 }
- 	 &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
- 	   transform: rotate(180deg);
- 	 }
-
+   	 > .@{menu-prefix-cls} {
+   	   display: block;
+   	 }
+   	 &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
+   	   transform: rotate(180deg);
+   	 }
     }
   }
 
@@ -142,7 +142,6 @@
    font-size: 14px;
    color: @white;
  	 position: relative;
- 	 top: 1px;
  	 > a {
  	   display: block;
  	   color: @white;
@@ -170,7 +169,8 @@
  	 &-active,
  	 &-selected {
     border-bottom: none;
- 	   background-color: rgba(255, 255, 255, 0.24);
+ 	   background-image: linear-gradient(-180deg, #ea681b 0%, #f37327 100%);
+     box-shadow: inset 0px 2px 3px 0px #d5601a;
      font-size: 14px;
  	   color: @white;
  	   .kuma-icon {
@@ -190,17 +190,17 @@
   &-vertical, &-inline {
     padding: 12px 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
- 	 padding: 0 40px;
- 	 font-size: 12px;
- 	 line-height: 40px;
- 	 height: 40px;
+ 	  padding: 0 40px;
+ 	  font-size: 12px;
+ 	  line-height: 40px;
+ 	  height: 40px;
     }
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
         font-size: 14px;
     }
   }
 
-  &-vertical&-sub {
+  &-vertical.@{menu-prefix-cls}-sub {
     padding: 0;
     transform-origin: 0 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu {
@@ -208,7 +208,7 @@
     }
   }
 
-  &-sub&-inline {
+  &-sub.@{menu-prefix-cls}-inline {
     padding: 0;
     border: none;
     overflow: hidden;
