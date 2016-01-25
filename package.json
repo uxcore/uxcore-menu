@@ -1,6 +1,6 @@
 {
   "name": "uxcore-menu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uxcore-menu component for uxcore.",
   "repository": "https://github.com/uxcore/uxcore-menu.git",
   "author": "vincent.bian",
@@ -36,7 +36,7 @@
   "dependencies": {
     "classnames": "^2.1.2",
     "object-assign": "^2.0.0",
-    "rc-menu": "^4.6.2"
+    "rc-menu": "~4.10.2"
   },
   "contributors": [],
   "license": "MIT"
