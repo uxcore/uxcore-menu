@@ -17,27 +17,26 @@ $ gulp server
 
 ## Usage
 ```js
-let Menu = require('uxcore-menu');
-let SubMenu = Menu.SubMenu;
-let MenuItem = Menu.Item;
+import ReactDOM from 'react-dom';
+import RcMenu, {SubMenu, Item, Divider} from 'rc-menu';
 
 ReactDOM.render(
 	<Menu >
-		<Menu.Item key="mail">
+		<Item key="mail">
 			<i className="kuma-icon kuma-icon-email"></i>导航一
-		</Menu.Item>
-		<Menu.Item key="app">
+		</Item>
+		<Item key="app">
 			<i className="kuma-icon kuma-icon-wangwang"></i>导航二
-		</Menu.Item>
+		</Item>
 		<SubMenu title={<span><i className="kuma-icon kuma-icon-setting"></i>导航 - 子菜单</span>}>
-			<Menu.Item key="setting:1">选项1</Menu.Item>
-			<Menu.Item key="setting:2">选项2</Menu.Item>
-			<Menu.Item key="setting:3">选项3</Menu.Item>
-			<Menu.Item key="setting:4">选项4</Menu.Item>
+			<Item key="setting:1">选项1</Item>
+			<Item key="setting:2">选项2</Item>
+			<Item key="setting:3">选项3</Item>
+			<Item key="setting:4">选项4</Item>
 		</SubMenu>
-		<Menu.Item key="alipay">
+		<Item key="alipay">
 			<a href="#" target="_blank">导航四 - 链接</a>
-		</Menu.Item>
+		</Item>
 	</Menu>,
 	target);
 ```
@@ -63,14 +62,14 @@ http://uxcore.github.io/uxcore/components/menu/
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key} | function | 无 |
 | style | 根节点样式 | object |  |
 
-### Menu.Item
+### Item
 
 | 配置项 | 说明 | 类型 | 默认值 |
 |---|---|---|---|
 | disabled | 是否禁用 | Boolean | false |
 | key | item 的唯一标志 | String |  |
 
-### Menu.SubMenu
+### SubMenu
 
 | 配置项 | 说明 | 类型 | 默认值 |
 |---|---|---|---|

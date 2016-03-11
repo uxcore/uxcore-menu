@@ -1,5 +1,9 @@
 # History
 
+## 1.1.0
+
+`CHANGED` use es export
+
 ## 1.0.2
 
 `CHANGED` update scaffold
