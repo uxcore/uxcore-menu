@@ -32,6 +32,11 @@
   &-item {
     cursor: pointer;
     transition: all 0.3s ease;
+    a {
+        &:hover, &:active {
+            text-decoration: none;
+        }
+    }
   }
 
   &-inline > &-item-active,
@@ -212,6 +217,9 @@
  	 font-size: 12px;
  	 line-height: 42px;
  	 height: 42px;
+    }
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+        font-size: 14px;
     }
   }
 

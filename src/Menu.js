@@ -6,7 +6,7 @@
  * All rights reserved.
  */
 import React from 'react';
-import RcMenu from 'rc-menu';
+import RcMenu, {SubMenu, Item} from 'rc-menu';
 
 class Menu extends React.Component {
     render() {
@@ -26,7 +26,7 @@ Menu.propTypes = {
 };
 
 Menu.Divider = RcMenu.Divider;
-Menu.Item = RcMenu.Item;
-Menu.SubMenu = RcMenu.SubMenu;
+Menu.Item = Item;
+Menu.SubMenu = SubMenu;
 
 export default Menu;
