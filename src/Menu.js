@@ -25,5 +25,8 @@ Menu.propTypes = {
     prefixCls: React.PropTypes.string
 };
 
-export {SubMenu, Item, Divider};
+Menu.SubMenu = SubMenu;
+Menu.Item = Item;
+Menu.Divider = Divider;
+
 export default Menu;

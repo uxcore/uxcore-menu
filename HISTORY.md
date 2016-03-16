@@ -1,17 +1,21 @@
 # History
 
+## 1.1.1
+
+* `FIX` fix export bug when using `export {xxx}`
+
 ## 1.1.0
 
-`CHANGED` use es export
+* `CHANGED` use es export
 
 ## 1.0.2
 
-`CHANGED` update scaffold
+* `CHANGED` update scaffold
 
 ## 1.0.1
 
-`CHANGE` change the module import method by update rc-menu to 4.10.2
+* `CHANGE` change the module import method by update rc-menu to 4.10.2
 
 ## 1.0.0
 
-`NEW` first commit
+* `NEW` first commit

@@ -9,7 +9,11 @@
 // let Menu = require('../src');
 // let SubMenu = Menu.SubMenu;
 // let Item = Item;
-import Menu, {SubMenu, Item} from '../src';
+// import Menu, {SubMenu, Item} from '../build';
+let Menu = require('../build');
+let {SubMenu, Item} = Menu;
+
+// window.Menu = Menu;
 
 function handleClick(e) {
     console.log('click', e);
