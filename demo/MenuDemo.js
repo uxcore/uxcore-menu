@@ -82,7 +82,7 @@ class Demo extends React.Component {
                 </Menu>
                 <p>内嵌菜单</p>
                 <Menu onClick={this.handleClick2.bind(this)}
-                    style={{width:240}}
+                    style={{width:220}}
                     defaultOpenKeys={['sub1']}
                     selectedKeys={[this.state.current2]}
                     mode="inline">
@@ -109,7 +109,7 @@ class Demo extends React.Component {
                 </Menu>
                 <p>只展开当前父级菜单</p>
                 <Menu onClick={this.handleClick3.bind(this)}
-                    style={{width:240}}
+                    style={{width:220}}
                     openKeys={this.state.openKeys}
                     onOpen={this.onToggle.bind(this)}
                     onClose={this.onToggle.bind(this)}
@@ -137,7 +137,7 @@ class Demo extends React.Component {
                     </SubMenu>
                 </Menu>
                 <p>垂直菜单</p>
-                <Menu onClick={handleClick} style={{width:240}} mode="vertical">
+                <Menu onClick={handleClick} style={{width:220}} mode="vertical">
                     <SubMenu key="sub1" title={<span><i className="kuma-icon kuma-icon-wangwang"></i><span>导航一</span></span>}>
                         <Item key="1">选项1</Item>
                         <Item key="2">选项2</Item>
