@@ -6,63 +6,62 @@
  * All rights reserved.
  */
  @menu-prefix-cls: kuma-menu;
- @white: #fff;
 
-.@{menu-prefix-cls} {
-    outline: none;
-    margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
-    list-style: none;
-    z-index: 1001;
-    border: none;
-    color: #adadad;
-    background: transparent;
+ .@{menu-prefix-cls} {
+  outline: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  z-index: 1001;
+  border: 1px solid @border-color;
+  color: @text-primary-color;
+  background: #fff;
 
-    .@{menu-prefix-cls}-item-group-list {
-        margin: 0;
-        padding: 0;
-    }
+  &-item-group-list {
+    margin: 0;
+    padding: 0;
+  }
 
-    .@{menu-prefix-cls}-item-group-title {
-        color: @text-primary-color;
-        line-height: 1.5;
-        padding: 8px 10px;
-        border-bottom: 1px solid #dedede;
-    }
+  &-item-group-title {
+    color: @text-primary-color;
+    line-height: 1.5;
+    padding: 8px 10px;
+    border-bottom: 1px solid #dedede;
+  }
 
-    .@{menu-prefix-cls}-item {
-        cursor: pointer;
-        a {
-            &:hover, &:active {
-                text-decoration: none;
-            }
+  &-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    a {
+        &:hover, &:active {
+            text-decoration: none;
         }
     }
+  }
 
-    &-inline > .@{menu-prefix-cls}-item-active,
-    &-submenu-inline.@{menu-prefix-cls}-submenu-active,
-    &-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
-        background-image: linear-gradient(-180deg, darken(desaturate(@brand-primary, 6%), 4%) 0%, @brand-primary 100%);
-        box-shadow: inset 0px 2px 3px 0px darken(desaturate(@brand-primary, 11%), 8%);
-        color: @white;
-    }
+  &-inline > &-item-active,
+  &-submenu-inline&-submenu-active,
+  &-submenu-inline&-submenu-active > &-submenu-title:hover {
+    background-color: #fff;
+  }
 
-    &-inline > .@{menu-prefix-cls}-item-active:hover,
-    &-item-active,
-    &-submenu-active,
-    &-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
-        background-color: rgba(255, 255, 255, 0.06);
-    }
+  &-inline > &-item-active:hover,
+  &-item-active,
+  &-submenu-active,
+  &-submenu-inline&-submenu-active > &-submenu-title:hover {
+    background-color: tint(@brand-primary, 90%);
+  }
 
-    &-item-selected {
-        background-color: rgba(255, 255, 255, 0.06);
-        color: @white;
-    }
+  &-item-selected {
+    background-color: tint(@brand-primary, 90%);
+    color: @brand-primary;
+  }
 
-    & > li&-submenu {
-        padding: 0;
-        cursor: pointer;
-    }
+  & > li&-submenu {
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
   &-submenu-horizontal > .@{menu-prefix-cls} {
     top: 100%;
@@ -80,7 +79,7 @@
     margin-left: 4px;
   }
 
-  &-item, .@{menu-prefix-cls}-submenu-title {
+  &-item, &-submenu-title {
     margin: 0;
     position: relative;
     display: block;
@@ -88,10 +87,10 @@
 
     // Disabled state sets text to gray and nukes hover/tab effects
     &.@{menu-prefix-cls}-item-disabled, &.@{menu-prefix-cls}-submenu-disabled {
- 	    color: @text-primary-color !important;
+ 	 color: @text-primary-color !important;
     }
   }
-  & > .@{menu-prefix-cls}-item-divider {
+  & > &-item-divider {
     height: 1px;
     margin: 1px 0;
     overflow: hidden;
@@ -104,17 +103,45 @@
     position: relative;
 
     > .@{menu-prefix-cls} {
-   	  display: none;
-   	  background-color: transparent;
+ 	 display: none;
+ 	 background-color: #fff;
+    }
+
+    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
+ 	 font-family: "kuma" !important;
+ 	 font-style: normal;
+ 	 vertical-align: baseline;
+ 	 text-align: center;
+ 	 text-transform: none;
+ 	 text-rendering: auto;
+ 	 position: absolute;
+ 	 transition: transform .3s ease;
+ 	 content: "\e643";
+ 	 right: 16px;
+    }
+
+    &-inline > .@{menu-prefix-cls}-submenu-title:after {
+ 	 font-family: "kuma" !important;
+ 	 font-style: normal;
+ 	 vertical-align: baseline;
+ 	 text-align: center;
+ 	 text-transform: none;
+ 	 text-rendering: auto;
+ 	 position: absolute;
+ 	 transition: transform .3s ease;
+ 	 content: "\e642";
+ 	 right: 16px;
+ 	 top: 0;
     }
 
     &-open {
-   	 > .@{menu-prefix-cls} {
-   	   display: block;
-   	 }
-   	 &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-   	   transform: rotate(180deg);
-   	 }
+ 	 > .@{menu-prefix-cls} {
+ 	   display: block;
+ 	 }
+ 	 &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
+ 	   transform: rotate(180deg);
+ 	 }
+
     }
   }
 
@@ -123,29 +150,28 @@
  	 width: 14px;
  	 margin-right: 8px;
  	 top: -1px;
- 	 color: @white;
+ 	 color: @text-primary-color;
     }
   }
 
   &-horizontal {
-    background-color: transparent;
+    background-color: #FBFBFB;
     border: none;
+    border-bottom: 1px solid @border-color;
     padding-left: 24px;
     z-index: 0;
 
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-        padding: 0 16px;
-        border-radius: 2px;
-        line-height: 32px;
-        font-size: 14px;
-        color: @white;
-        position: relative;
+ 	 padding: 0 20px;
+ 	 line-height: 50px;
+ 	 position: relative;
+ 	 top: 1px;
  	 > a {
  	   display: block;
- 	   color: @white;
+ 	   color: @text-primary-color;
  	   &:hover {
- 		 color: @white;
+ 		 color: @brand-primary;
  	   }
  	   &:before, &:after {
  		 position: absolute;
@@ -162,18 +188,16 @@
 
     & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
  	 float: left;
- 	 margin-right: 4px;
-   border-bottom: none;
+ 	 border-bottom: 2px solid transparent;
+ 	 margin-right: 24px;
 
  	 &-active,
  	 &-selected {
-        border-bottom: none;
-        background-image: linear-gradient(-180deg, darken(desaturate(@brand-primary, 6%), 4%) 0%, @brand-primary 100%);
-        box-shadow: inset 0px 2px 3px 0px darken(desaturate(@brand-primary, 11%), 8%);
-        font-size: 14px;
-        color: @white;
+ 	   border-bottom: 2px solid @brand-primary;
+ 	   background-color: #FBFBFB;
+ 	   color: @brand-primary;
  	   .kuma-icon {
- 		 color: @white;
+ 		 color: @brand-primary;
  	   }
  	 }
     }
@@ -189,17 +213,17 @@
   &-vertical, &-inline {
     padding: 12px 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
- 	  padding: 0 40px;
- 	  font-size: 12px;
- 	  line-height: 40px;
- 	  height: 40px;
+ 	 padding: 0 24px;
+ 	 font-size: 12px;
+ 	 line-height: 42px;
+ 	 height: 42px;
     }
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
         font-size: 14px;
     }
   }
 
-  &-vertical.@{menu-prefix-cls}-sub {
+  &-vertical&-sub {
     padding: 0;
     transform-origin: 0 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu {
@@ -207,7 +231,7 @@
     }
   }
 
-  &-sub.@{menu-prefix-cls}-inline {
+  &-sub&-inline {
     padding: 0;
     border: none;
     overflow: hidden;

@@ -10,7 +10,7 @@
 // let SubMenu = Menu.SubMenu;
 // let Item = Item;
 // import Menu, {SubMenu, Item} from '../build';
-let Menu = require('../build');
+let Menu = require('../src/Menu');
 let {SubMenu, Item} = Menu;
 
 // window.Menu = Menu;
