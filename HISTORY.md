@@ -1,5 +1,9 @@
 # History
 
+## 1.2.0
+
+* `UPDATE` to rc-menu@4.13.0. 
+
 ## 1.1.1
 
 * `FIX` fix export bug when using `export {xxx}`
