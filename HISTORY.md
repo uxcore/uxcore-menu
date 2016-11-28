@@ -1,8 +1,8 @@
 # History
 
-## 1.2.0
+## 1.3.0
 
-* `UPDATE` to rc-menu@4.13.0. 
+* `UPDATE` to rc-menu@4.13.0
 
 ## 1.1.1
 
