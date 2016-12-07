@@ -1,8 +1,12 @@
 # History
 
+## 1.3.1
+
+* `NEW` add new style `kuma-menu-none-border`
+
 ## 1.3.0
 
-* `UPDATE` to rc-menu@4.13.0
+* `CHANHED` to rc-menu@4.13.0
 
 ## 1.1.1
 

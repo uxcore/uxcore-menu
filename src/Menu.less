@@ -147,10 +147,11 @@
 
   .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
     .kuma-icon {
- 	 width: 14px;
- 	 margin-right: 8px;
- 	 top: -1px;
- 	 color: @text-primary-color;
+      width: 14px;
+      margin-right: 8px;
+      top: -1px;
+      color: @text-primary-color;
+      vertical-align: middle;
     }
   }
 
@@ -251,3 +252,49 @@
     top: -1px;
   }
  }
+
+.@{menu-prefix-cls}-none-border {
+  border: none;
+  .kuma-menu-item-selected {
+    background-color: #fafafa;
+    color: @text-primary-color;
+    font-weight: bold;
+    .kuma-icon {
+      font-weight: normal;
+    }
+    &:before {
+      content: "";
+      height: 100%;
+      border-left: 3px solid @brand-primary;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .@{menu-prefix-cls}-item-active:hover,
+  .@{menu-prefix-cls}-item-active,
+  // .@{menu-prefix-cls}-submenu-active,
+  .@{menu-prefix-cls}-submenu-title:hover {
+    background-color: #fafafa;
+    color: @text-primary-color;
+    &:before {
+      content: "";
+      height: 100%;
+      border-left: 3px solid @brand-primary;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
+    background-color: #fafafa;
+    color: @text-primary-color;
+  }
+  &.@{menu-prefix-cls}-vertical, 
+  &.@{menu-prefix-cls}-inline {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      font-size: 14px;
+      line-height: 45px;
+      height: 45px;
+    }
+  }
+}
