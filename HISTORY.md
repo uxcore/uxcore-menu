@@ -1,5 +1,9 @@
 # History
 
+## 1.4.0
+
+* `NEW` new animation
+
 ## 1.3.1
 
 * `NEW` add new style `kuma-menu-none-border`
