@@ -325,25 +325,26 @@
 }
 
 .@{menu-prefix-cls}-horizontal {
-  .@{menu-prefix-cls}-open-enter,
-  .@{menu-prefix-cls}-open-appear {
+  .@{menu-prefix-cls}-open--enter,
+  .@{menu-prefix-cls}-open--appear {
     animation-timing-function: ease-out;
     animation-duration: .3s;
     transform: translate(0, 20px);
     opacity: 0;
   }
-  .@{menu-prefix-cls}-open-enter-active,
-  .@{menu-prefix-cls}-open-appear-active {
+  .@{menu-prefix-cls}-open--enter-active,
+  .@{menu-prefix-cls}-open--appear-active {
     animation-name: menuOpen;
   }
-  .@{menu-prefix-cls}-open-leave {
+  .@{menu-prefix-cls}-open--leave {
     display: block;
     transform: translate(0, 0);
     opacity: 1;
+    display: block;
     animation-timing-function: ease-out;
     animation-duration: .3s;
   }
-  .@{menu-prefix-cls}-open-leave-active {
+  .@{menu-prefix-cls}-open--leave-active {
     animation-name: menuClose;
   }
 }
