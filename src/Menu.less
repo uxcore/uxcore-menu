@@ -8,6 +8,9 @@
 
 @menu-prefix-cls: kuma-menu;
 .@{menu-prefix-cls} {
+  * {
+    transition: all 0.15s @transition-ease; 
+  }
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -346,5 +349,52 @@
   }
   .@{menu-prefix-cls}-open--leave-active {
     animation-name: menuClose;
+  }
+}
+
+@keyframes verticalMenuOpen {
+  0% {
+    transform: translate(-20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes verticalMenuClose {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-20px, 0);
+    opacity: 0;
+  }
+}
+
+.@{menu-prefix-cls}-vertical {
+  .@{menu-prefix-cls}-open--enter,
+  .@{menu-prefix-cls}-open--appear {
+    animation-timing-function: ease-out;
+    animation-duration: .3s;
+    transform: translate(-20px, 0);
+    opacity: 0;
+  }
+  .@{menu-prefix-cls}-open--enter-active,
+  .@{menu-prefix-cls}-open--appear-active {
+    animation-name: verticalMenuOpen;
+  }
+  .@{menu-prefix-cls}-open--leave {
+    display: block;
+    transform: translate(0, 0);
+    opacity: 1;
+    display: block;
+    animation-timing-function: ease-out;
+    animation-duration: .3s;
+  }
+  .@{menu-prefix-cls}-open--leave-active {
+    animation-name: verticalMenuClose;
   }
 }

@@ -25,12 +25,12 @@ class Menu extends React.Component {
           height = node.offsetHeight;
           node.style.height = 0;
           node.style.opacity = 1;
-          node.style.transform = 'translate(-10px, 0)';
+          // node.style.transform = 'translate(-10px, 0)';
         }
       },
       active() {
         node.style.height = `${show ? height : 0}px`;
-        node.style.transform = `translate(${show ? '0' : '-10px'}, 0)`;
+        // node.style.transform = `translate(${show ? '0' : '-10px'}, 0)`;
       },
       end() {
         node.style.height = '';
