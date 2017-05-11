@@ -8,9 +8,7 @@
 
 @menu-prefix-cls: kuma-menu;
 .@{menu-prefix-cls} {
-  * {
-    transition: all 0.15s @transition-ease; 
-  }
+  transition: all 0.15s @transition-ease;
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -48,10 +46,10 @@
   &-item-active,
   &-submenu-active,
   &-submenu-inline&-submenu-active>&-submenu-title:hover {
-    background-color: tint(@brand-primary, 90%);
+    background-color: @brand-primary-alpha-8;
   }
   &-item-selected {
-    background-color: tint(@brand-primary, 90%);
+    background-color: @brand-primary-alpha-8;
     color: @brand-primary;
   }
   &>li&-submenu {
@@ -78,8 +76,8 @@
     margin: 0;
     position: relative;
     display: block;
-    white-space: nowrap;
-    // Disabled state sets text to gray and nukes hover/tab effects
+    white-space: nowrap; // Disabled state sets text to gray and nukes hover/tab effects
+    transition: all 0.3s ease;
     &.@{menu-prefix-cls}-item-disabled,
     &.@{menu-prefix-cls}-submenu-disabled {
       color: @text-primary-color !important;
@@ -94,12 +92,12 @@
     background-color: #e5e5e5;
   }
   &-hidden {
-      display: none;
+    display: none;
   }
   &-submenu {
     position: relative;
     >.@{menu-prefix-cls} {
-    //   display: none;
+      //   display: none;
       background-color: #fff;
     }
     &-vertical>.@{menu-prefix-cls}-submenu-title:after {
@@ -156,8 +154,7 @@
     &>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
       padding: 0 20px;
       line-height: 50px;
-      position: relative;
-      // top: 1px;
+      position: relative; // top: 1px;
       >a {
         display: block;
         color: @text-primary-color;
@@ -179,8 +176,7 @@
     }
     &>.@{menu-prefix-cls}-submenu,
     &>.@{menu-prefix-cls}-item {
-      float: left;
-      // border-bottom: 2px solid transparent;
+      float: left; // border-bottom: 2px solid transparent;
       margin-right: 24px;
       transition: all 0.3s ease-out;
       &:after {
@@ -263,8 +259,8 @@
 .@{menu-prefix-cls}-none-border {
   border: none;
   .kuma-menu-item-selected {
-    background-color: #fafafa;
-    color: @text-primary-color;
+    background-color: @brand-primary-alpha-8;
+    color: @brand-primary;
     font-weight: bold;
     .kuma-icon {
       font-weight: normal;
@@ -274,25 +270,22 @@
       height: 100%;
       border-left: 3px solid @brand-primary;
       position: absolute;
-      left: 0;
+      right: 0;
     }
   }
   .@{menu-prefix-cls}-item-active:hover,
+  .@{menu-prefix-cls}-submenu-active,
   .@{menu-prefix-cls}-item-active,
   .@{menu-prefix-cls}-submenu-title:hover {
-    background-color: #fafafa;
-    color: @text-primary-color;
-    &:before {
-      content: "";
-      height: 100%;
-      border-left: 3px solid @brand-primary;
-      position: absolute;
-      left: 0;
+    background-color: transparent;
+    color: @brand-primary;
+    &.@{menu-prefix-cls}-item-selected {
+      background-color: @brand-primary-alpha-8;
     }
   }
   .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active>.@{menu-prefix-cls}-submenu-title:hover {
-    background-color: #fafafa;
-    color: @text-primary-color;
+    background-color: transparent;
+    color: @brand-primary;
   }
   &.@{menu-prefix-cls}-vertical,
   &.@{menu-prefix-cls}-inline {
@@ -301,6 +294,35 @@
       font-size: 14px;
       line-height: 45px;
       height: 45px;
+    }
+  }
+  &.@{menu-prefix-cls}-inline {
+    .@{menu-prefix-cls}-sub {
+      .@{menu-prefix-cls}-item {
+        background-color: @normal-alpha-9;
+        &-selected {
+          background: @brand-primary-alpha-8;
+        }
+        border-bottom: 1px solid white;
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+  &.@{menu-prefix-cls}-vertical {
+    .@{menu-prefix-cls}-sub {
+      border: none;
+      box-shadow: @box-shadow-2;
+    }
+    .kuma-menu-item-selected {
+      background-color: white;
+      &:hover {
+        background-color: white;
+      }
+      &:before {
+        display: none;
+      }
     }
   }
 }

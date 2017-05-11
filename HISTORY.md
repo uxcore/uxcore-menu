@@ -1,5 +1,9 @@
 # History
 
+## 1.5.0
+
+* `CHANGED` none-border theme style change
+
 ## 1.4.0
 
 * `NEW` new animation
