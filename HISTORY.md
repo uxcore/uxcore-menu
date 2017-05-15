@@ -1,5 +1,9 @@
 # History
 
+## 1.6.0
+
+* `CHANGED` add new theme `none-border-dark`
+
 ## 1.5.0
 
 * `CHANGED` none-border theme style change

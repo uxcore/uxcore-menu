@@ -201,21 +201,15 @@ class Demo extends React.Component {
           className="kuma-menu-none-border"
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current2]}
-          mode="vertical"
+          mode="inline"
         >
-          {/* <SubMenu key="sub1" title={<span><i className="icon-demo kuma-icon kuma-icon-email"></i><span>导航一</span></span>}>
-                        <Item key="1">选项1</Item>
-                        <Item key="2">选项2</Item>
-                        <Item key="3">选项3</Item>
-                        <Item key="4">选项4</Item>
-                    </SubMenu>*/}
           <Item key="1">
-            <span><i className="icon-demo kuma-icon kuma-icon-email" /><span>导航一</span></span>
+            <span>导航一</span>
           </Item>
           <SubMenu
             key="sub2"
             title={
-              <span><i className="icon-demo kuma-icon kuma-icon-wangwang" /><span>导航二</span></span>
+              <span>导航二</span>
             }
           >
             <Item key="5">选项5</Item>
@@ -228,7 +222,44 @@ class Demo extends React.Component {
           <SubMenu
             key="sub4"
             title={
-              <span><i className="icon-demo kuma-icon kuma-icon-boss" /><span>导航三</span></span>
+              <span>导航三</span>
+            }
+          >
+            <Item key="9">选项9</Item>
+            <Item key="10">选项10</Item>
+            <Item key="11">选项11</Item>
+            <Item key="12">选项12</Item>
+          </SubMenu>
+        </Menu>
+        <p>内外主题（深色版）</p>
+        <Menu
+          onClick={this.handleClick2.bind(this)}
+          style={{ width: 220 }}
+          className="kuma-menu-none-border-dark"
+          defaultOpenKeys={['sub1']}
+          selectedKeys={[this.state.current2]}
+          mode="vertical"
+        >
+          <Item key="1">
+            <span>导航一</span>
+          </Item>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>导航二</span>
+            }
+          >
+            <Item key="5">选项5</Item>
+            <Item key="6">选项6</Item>
+            <SubMenu key="sub3" title="三级导航">
+              <Item key="7">选项7</Item>
+              <Item key="8">选项8</Item>
+            </SubMenu>
+          </SubMenu>
+          <SubMenu
+            key="sub4"
+            title={
+              <span>导航三</span>
             }
           >
             <Item key="9">选项9</Item>

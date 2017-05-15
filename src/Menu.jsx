@@ -62,6 +62,7 @@ class Menu extends React.Component {
 Menu.defaultProps = {
   prefixCls: 'kuma-menu',
   openAnimation: '',
+  inlineIndent: 14,
 };
 Menu.propTypes = {
   mode: React.PropTypes.string,
