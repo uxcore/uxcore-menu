@@ -1,5 +1,9 @@
 # History
 
+## 1.6.1
+
+* `FIXED` text overflow style
+
 ## 1.6.0
 
 * `CHANGED` add new theme `none-border-dark`

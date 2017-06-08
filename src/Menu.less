@@ -30,6 +30,7 @@
   &-item {
     cursor: pointer;
     transition: all 0.3s ease;
+    
     a {
       &:hover,
       &:active {
@@ -74,6 +75,8 @@
   &-item,
   &-submenu-title {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: relative;
     display: block;
     white-space: nowrap; // Disabled state sets text to gray and nukes hover/tab effects
