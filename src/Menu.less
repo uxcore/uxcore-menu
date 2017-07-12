@@ -80,6 +80,9 @@
         display: inline-block;
         width: 10px;
       }
+      > div {
+        display: inline-block;
+      }
     }
     margin: 0;
     overflow: hidden;
@@ -350,7 +353,7 @@
   .@{menu-prefix-cls}-item-selected {
     background-color: @dark-alpha-6;
     color: white;
-    &:before {
+    &:after {
       content: "";
       height: 100%;
       border-left: 3px solid @brand-primary;
