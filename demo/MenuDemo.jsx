@@ -80,7 +80,10 @@ class Demo extends React.Component {
             <Item key="setting:1">选项1</Item>
             <Item key="setting:2">选项2</Item>
             <Item key="setting:3">选项3</Item>
-            <Item key="setting:4">选项4</Item>
+            <SubMenu key="sub3" title="三级导航">
+              <Item key="7">选项7</Item>
+              <Item key="8">选项8</Item>
+            </SubMenu>
           </SubMenu>
           <Item key="alipay">
             <a href="#" target="_blank">导航四 - 链接</a>

@@ -39,14 +39,14 @@
     }
   }
   &-inline>&-item-active,
-  &-submenu-inline&-submenu-active,
-  &-submenu-inline&-submenu-active>&-submenu-title:hover {
+  &-submenu-inline.@{menu-prefix-cls}-submenu-active,
+  &-submenu-inline.@{menu-prefix-cls}-submenu-active>&-submenu-title:hover {
     background-color: #fff;
   }
   &-inline>&-item-active:hover,
   &-item-active,
   &-submenu-active,
-  &-submenu-inline&-submenu-active>&-submenu-title:hover {
+  &-submenu-inline.@{menu-prefix-cls}-submenu-active>&-submenu-title:hover {
     background-color: @brand-primary-alpha-8;
   }
   &-item-selected {
@@ -74,6 +74,13 @@
   }
   &-item,
   &-submenu-title {
+    .@{menu-prefix-cls}-inline & {
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+      }
+    }
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -264,11 +271,10 @@
   .@{menu-prefix-cls}-item-selected {
     background-color: @brand-primary-alpha-8;
     color: @brand-primary;
-    font-weight: bold;
     .kuma-icon {
       font-weight: normal;
     }
-    &:before {
+    &:after {
       content: "";
       height: 100%;
       border-left: 3px solid @brand-primary;
@@ -344,10 +350,6 @@
   .@{menu-prefix-cls}-item-selected {
     background-color: @dark-alpha-6;
     color: white;
-    font-weight: bold;
-    .kuma-icon {
-      font-weight: normal;
-    }
     &:before {
       content: "";
       height: 100%;

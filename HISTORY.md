@@ -1,6 +1,6 @@
 # History
 
-## 1.6.1
+ ## 1.6.1
 
 * `FIXED` text overflow style
 
