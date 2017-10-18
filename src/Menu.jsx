@@ -6,6 +6,7 @@
  * All rights reserved.
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import RcMenu, { SubMenu, Item, Divider } from 'rc-menu';
 import cssAni from 'css-animation';
 
@@ -65,8 +66,8 @@ Menu.defaultProps = {
   inlineIndent: 14,
 };
 Menu.propTypes = {
-  mode: React.PropTypes.string,
-  prefixCls: React.PropTypes.string,
+  mode: PropTypes.string,
+  prefixCls: PropTypes.string,
 };
 
 Menu.SubMenu = SubMenu;
