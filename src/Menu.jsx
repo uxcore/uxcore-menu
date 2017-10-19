@@ -53,10 +53,24 @@ class Menu extends React.Component {
         return me.animate(node, false, done);
       },
     };
-    if (this.props.mode === 'inline') {
-      return <RcMenu {...this.props} openAnimation={openAnimation} />;
+    const onOpenChange = (openKeys) => {
+      if (this.props.onOpenChange) {
+        this.props.onOpenChange(openKeys);
+      }
+
+      if (this.props.onOpen) {
+        this.props.onOpen({ openKeys });
+      }
+
+      if (this.props.onClose) {
+        this.props.onClose({ openKeys} );
+      }
     }
-    return <RcMenu {...this.props} />;
+
+    if (this.props.mode === 'inline') {
+      return <RcMenu {...this.props} openAnimation={openAnimation} onOpenChange={onOpenChange} />;
+    }
+    return <RcMenu {...this.props} onOpenChange={onOpenChange} />;
   }
 }
 
@@ -68,6 +82,8 @@ Menu.defaultProps = {
 Menu.propTypes = {
   mode: PropTypes.string,
   prefixCls: PropTypes.string,
+  onOpen: PropTypes.func,
+  onClose: PropTypes.func,
 };
 
 Menu.SubMenu = SubMenu;

@@ -56,10 +56,10 @@ class Demo extends React.Component {
     });
   }
 
-  onToggle(openKeys) {
+  onToggle(info) {
 
     this.setState({
-      openKeys,
+      openKeys: info.openKeys,
     });
   }
 
@@ -133,7 +133,8 @@ class Demo extends React.Component {
           onClick={this.handleClick3.bind(this)}
           style={{ width: 220 }}
           openKeys={this.state.openKeys}
-          onOpenChange={this.onToggle.bind(this)}
+          onOpen={this.onToggle.bind(this)}
+          onClose={this.onToggle.bind(this)}
           selectedKeys={[this.state.current3]}
           mode="inline"
         >
