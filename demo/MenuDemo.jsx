@@ -57,6 +57,7 @@ class Demo extends React.Component {
   }
 
   onToggle(info) {
+
     this.setState({
       openKeys: info.openKeys,
     });
