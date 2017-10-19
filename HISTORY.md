@@ -1,6 +1,11 @@
 # History
 
- ## 1.6.1
+## 2.0.0
+
+* 'CHANGED' upgrade to react 15.x
+* 'CHANGED' upgrade rc-menu to 5.1.4
+
+## 1.6.1
 
 * `FIXED` text overflow style
 
@@ -38,7 +43,7 @@
 
 ## 1.0.1
 
-* `CHANGE` change the module import method by update rc-menu to 4.10.2
+* `CHANGED` change the module import method by update rc-menu to 4.10.2
 
 ## 1.0.0
 
