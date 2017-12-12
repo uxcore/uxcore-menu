@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcMenu, { SubMenu, Item, Divider } from 'rc-menu';
+import RcMenu, { SubMenu, Item, Divider, ItemGroup } from 'rc-menu';
 import cssAni from 'css-animation';
 
 /* eslint-disable no-param-reassign */
@@ -89,5 +89,6 @@ Menu.propTypes = {
 Menu.SubMenu = SubMenu;
 Menu.Item = Item;
 Menu.Divider = Divider;
+Menu.ItemGroup = ItemGroup;
 
 export default Menu;
