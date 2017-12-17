@@ -17,15 +17,19 @@
   border: 1px solid @border-color;
   color: @text-primary-color;
   background: #fff;
+  &-item-group{
+    
+  }
   &-item-group-list {
     margin: 0;
     padding: 0;
   }
   &-item-group-title {
-    color: @text-primary-color;
+    color: @white-alpha-4;
     line-height: 1.5;
-    padding: 8px 10px;
-    border-bottom: 1px solid #dedede;
+    padding:10px 0 5px 28px;
+    font-size: 14px;
+    cursor: default;
   }
   &-item {
     cursor: pointer;
@@ -269,20 +273,41 @@
   }
 }
 
-.@{menu-prefix-cls}-none-border {
+.@{menu-prefix-cls}-none-border{
   border: none;
-  .@{menu-prefix-cls}-item-selected {
+  
+  &.@{menu-prefix-cls}-inline{
+    
+    .@{menu-prefix-cls}-item{
+      
+      &::after{
+        content: " ";
+        // height: 100%;
+        border-left: 3px solid @brand-primary;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transform: scaleY(0.0001);
+        opacity: 0;
+        transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+    }
+  }
+  
+  &.@{menu-prefix-cls}-inline{
+    .@{menu-prefix-cls}-item-selected{
+      &::after {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+  }
+  .@{menu-prefix-cls}-item-selected{
     background-color: @brand-primary-alpha-8;
     color: @brand-primary;
     .kuma-icon {
       font-weight: normal;
-    }
-    &:after {
-      content: "";
-      height: 100%;
-      border-left: 3px solid @brand-primary;
-      position: absolute;
-      right: 0;
     }
   }
   .@{menu-prefix-cls}-item-active:hover,
@@ -314,18 +339,18 @@
   &.@{menu-prefix-cls}-inline {
     .@{menu-prefix-cls}-sub {
       .@{menu-prefix-cls}-submenu-title {
-        background: @normal-alpha-9;
-        border-bottom: 1px solid white;
-        &:hover {
-          background: @normal-alpha-9;
-        }
+        // background: @normal-alpha-9;
+        // border-bottom: 1px solid white;
+        // &:hover {
+          //background: @normal-alpha-9;
+        // }
       }
       .@{menu-prefix-cls}-item {
-        background-color: @normal-alpha-9;
+        // background-color: @normal-alpha-9;
         &-selected {
           background: @brand-primary-alpha-8;
         }
-        border-bottom: 1px solid white;
+        // border-bottom: 1px solid white;
         &:last-child {
           border: none;
         }
@@ -352,37 +377,63 @@
 .@{menu-prefix-cls}-none-border-dark {
   border: none;
   background: #2C2F33;
-  color: @white-alpha-2;
-  .@{menu-prefix-cls}-item-selected {
-    background-color: @dark-alpha-6;
-    color: white;
-    &:after {
-      content: "";
-      height: 100%;
-      border-left: 3px solid @brand-primary;
-      position: absolute;
-      right: 0;
-    }
-  }
-  .@{menu-prefix-cls}-item-active:hover,
-  .@{menu-prefix-cls}-submenu-active,
-  .@{menu-prefix-cls}-item-active,
-  .@{menu-prefix-cls}-submenu-title:hover {
-    background-color: @dark-alpha-6;
-    color: white;
-  }
-  .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active>.@{menu-prefix-cls}-submenu-title:hover {
-    background-color: @dark-alpha-6;
-    color: white;
-  }
-  &.@{menu-prefix-cls}-vertical,
-  &.@{menu-prefix-cls}-inline {
+  color: @white-alpha-3;
+  
+  
+  // .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active>.@{menu-prefix-cls}-submenu-title:hover {
+  //   background-color: @dark-alpha-6;
+  //   color: white;
+  // }
+  &.@{menu-prefix-cls}-vertical{
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+      color:@white-alpha-3;
       font-size: 14px;
       line-height: 45px;
       height: 45px;
     }
+    .@{menu-prefix-cls}-submenu-open{
+      >.kuma-menu-submenu-title{
+        color: @brand-primary;
+        &:hover{
+          color: #fff;
+        }
+      }
+    }
+    
+  }
+  
+  &.@{menu-prefix-cls}-inline,&.@{menu-prefix-cls}-vertical{
+    .@{menu-prefix-cls}-item-active,.@{menu-prefix-cls}-submenu-active{
+      background: transparent;
+    }
+    .@{menu-prefix-cls}-item-selected{
+      background: transparent;
+      color:#fff;
+    }
+  }
+
+  &.@{menu-prefix-cls}-inline {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+      color:@white-alpha-3;
+      font-size: 14px;
+      line-height: 45px;
+      height: 45px;
+    }
+    
+    .@{menu-prefix-cls}-item-selected {
+      background-color: @brand-primary;
+      color: @white-alpha-1;
+      
+    }
+    // .@{menu-prefix-cls}-item-active:hover,
+    // .@{menu-prefix-cls}-submenu-active,
+    // .@{menu-prefix-cls}-item-active,
+    // .@{menu-prefix-cls}-submenu-title:hover {
+    //   // background-color: #2C2F33;
+    //   color: #fff;
+    // }
   }
   &.@{menu-prefix-cls}-inline {
     .@{menu-prefix-cls}-submenu {
@@ -392,17 +443,21 @@
       }
     }
   }
+
+  
   &.@{menu-prefix-cls}-vertical {
     .@{menu-prefix-cls}-sub {
       border: none;
       box-shadow: @box-shadow-2;
+      background: #2C2F33;
+      border-radius: 3px;
       .@{menu-prefix-cls}-item-active:hover,
       .@{menu-prefix-cls}-submenu-active,
       .@{menu-prefix-cls}-item-active,
       .@{menu-prefix-cls}-submenu-title:hover,
       .@{menu-prefix-cls}-item-selected  {
         background-color: @normal-alpha-9;
-        color: @dark-alpha-3;
+        color: #fff;
       }
     }
   }

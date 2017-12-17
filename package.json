@@ -42,7 +42,8 @@
   "react-test-renderer": "15.x",
   "uxcore-icon": "^0.1.14",
   "uxcore-kuma": "*",
-  "uxcore-tools": "0.2.x"
+  "uxcore-tools": "0.2.x",
+  "uxcore": "0.18.0"
  },
  "dependencies": {
   "classnames": "^2.1.2",
