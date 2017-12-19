@@ -229,6 +229,19 @@ class Demo extends React.Component {
           <Item key="1">
             <span>导航一</span>
           </Item>
+          <SubMenu title="分组">
+            <ItemGroup title="水果">
+              <Item key="a">苹果</Item>
+              <Item key="b">香蕉</Item>
+            </ItemGroup>
+            <ItemGroup title="蔬菜">
+              <SubMenu key="sub3" title="青菜">
+                <Item key="7">小白菜</Item>
+                <Item key="8">大青菜</Item>
+              </SubMenu>
+              <Item key="l">萝卜</Item>
+            </ItemGroup>
+          </SubMenu>
           <SubMenu
             key="sub2"
             title={
@@ -278,7 +291,10 @@ class Demo extends React.Component {
               <Item key="b">香蕉</Item>
             </ItemGroup>
             <ItemGroup title="蔬菜">
-              <Item key="q">青菜</Item>
+              <SubMenu key="sub3" title="青菜">
+                <Item key="7">小白菜</Item>
+                <Item key="8">大青菜</Item>
+              </SubMenu>
               <Item key="l">萝卜</Item>
             </ItemGroup>
           </SubMenu>
