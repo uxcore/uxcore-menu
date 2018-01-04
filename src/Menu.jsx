@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import RcMenu, { SubMenu, Item, Divider, ItemGroup } from 'rc-menu';
 import cssAni from 'css-animation';
 
@@ -42,6 +43,7 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
+    const {className} = this.props;
     const openAnimation = {
       enter(node, done) {
         return me.animate(node, true, done);
@@ -52,6 +54,10 @@ class Menu extends React.Component {
       leave(node, done) {
         return me.animate(node, false, done);
       },
+    };
+    const menuProps = {
+      className: classnames(className, '12121313'),
+      theme: '22222',
     };
     const onOpenChange = (openKeys) => {
       if (this.props.onOpenChange) {
@@ -68,9 +74,9 @@ class Menu extends React.Component {
     }
 
     if (this.props.mode === 'inline') {
-      return <RcMenu {...this.props} openAnimation={openAnimation} onOpenChange={onOpenChange} />;
+      return <RcMenu {...this.props} {...menuProps} openAnimation={openAnimation} onOpenChange={onOpenChange} />;
     }
-    return <RcMenu {...this.props} onOpenChange={onOpenChange} />;
+    return <RcMenu {...this.props} {...menuProps} onOpenChange={onOpenChange} />;
   }
 }
 
@@ -84,6 +90,7 @@ Menu.propTypes = {
   prefixCls: PropTypes.string,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
+  className: PropTypes.string,
 };
 
 Menu.SubMenu = SubMenu;

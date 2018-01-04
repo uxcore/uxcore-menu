@@ -41,7 +41,7 @@ class Demo extends React.Component {
       current2: '1',
       current3: '1',
       openKeys: [],
-      status: 'inline',
+      status: 'vertical',
     };
   }
 
