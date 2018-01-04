@@ -225,6 +225,7 @@ class Demo extends React.Component {
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current2]}
           mode={this.state.status}
+          openAnimation={'zoom'}
         >
           <Item key="1">
             <span>导航一</span>
@@ -281,6 +282,7 @@ class Demo extends React.Component {
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current2]}
           mode={this.state.status}
+          openAnimation={'zoom'}
         >
           <Item key="1">
             <span><Icon name="shangchuan" />导航一</span>
