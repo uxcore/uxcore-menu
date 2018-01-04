@@ -8,13 +8,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import RcMenu, { SubMenu, Item, Divider, ItemGroup } from 'rc-menu';
+import RcMenu, { Item, Divider, ItemGroup } from 'rc-menu';
 import cssAni from 'css-animation';
+import SubMenu from './SubMenu';
 
 /* eslint-disable no-param-reassign */
 
 class Menu extends React.Component {
-
+  getChildContext() {
+    return {
+      prefixCls: this.props.prefixCls,
+      theme: this.props.className ? this.props.className.replace(this.props.prefixCls + '-', '') : '',
+    };
+  }
   animate(node, show, done) {
     const { prefixCls } = this.props;
     let height;
@@ -55,10 +61,7 @@ class Menu extends React.Component {
         return me.animate(node, false, done);
       },
     };
-    const menuProps = {
-      className: classnames(className, '12121313'),
-      theme: '22222',
-    };
+
     const onOpenChange = (openKeys) => {
       if (this.props.onOpenChange) {
         this.props.onOpenChange(openKeys);
@@ -74,9 +77,9 @@ class Menu extends React.Component {
     }
 
     if (this.props.mode === 'inline') {
-      return <RcMenu {...this.props} {...menuProps} openAnimation={openAnimation} onOpenChange={onOpenChange} />;
+      return <RcMenu {...this.props} openAnimation={openAnimation} onOpenChange={onOpenChange} />;
     }
-    return <RcMenu {...this.props} {...menuProps} onOpenChange={onOpenChange} />;
+    return <RcMenu {...this.props} onOpenChange={onOpenChange} />;
   }
 }
 
@@ -93,6 +96,10 @@ Menu.propTypes = {
   className: PropTypes.string,
 };
 
+Menu.childContextTypes = {
+  prefixCls: PropTypes.string,
+  theme: PropTypes.string,
+};
 Menu.SubMenu = SubMenu;
 Menu.Item = Item;
 Menu.Divider = Divider;
