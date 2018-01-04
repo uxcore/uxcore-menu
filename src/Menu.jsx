@@ -85,8 +85,8 @@ class Menu extends React.Component {
 
 Menu.defaultProps = {
   prefixCls: 'kuma-menu',
-  openAnimation: '',
   inlineIndent: 14,
+  openAnimation: 'zoom',
 };
 Menu.propTypes = {
   mode: PropTypes.string,
@@ -94,15 +94,16 @@ Menu.propTypes = {
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   className: PropTypes.string,
+  openAnimation: PropTypes.string,
 };
 
 Menu.childContextTypes = {
   prefixCls: PropTypes.string,
   theme: PropTypes.string,
 };
+
+Menu.ItemGroup = ItemGroup;
 Menu.SubMenu = SubMenu;
 Menu.Item = Item;
 Menu.Divider = Divider;
-Menu.ItemGroup = ItemGroup;
-
 export default Menu;
