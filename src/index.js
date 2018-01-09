@@ -6,4 +6,5 @@
  * All rights reserved.
  */
 
-module.exports = require('./Menu');
+export default from './Menu';
+

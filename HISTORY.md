@@ -1,9 +1,13 @@
 # History
 
+## 3.0.0
+
+* `BREAKING CHANGED` upgrade rc-menu to [`^6.0.0`](https://github.com/react-component/menu/blob/master/HISTORY.md#600--2017-10-30) , new menu will render its submenu into `document.body` which may affect some user-defined css. 
+
 ## 2.0.0
 
-* 'CHANGED' upgrade to react 15.x
-* 'CHANGED' upgrade rc-menu to 5.1.4
+* `CHANGED` upgrade to react 15.x
+* `CHANGED` upgrade rc-menu to 5.1.4
 
 ## 1.6.1
 
