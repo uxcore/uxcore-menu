@@ -7,13 +7,20 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcMenu, { SubMenu, Item, Divider } from 'rc-menu';
+import classnames from 'classnames';
+import RcMenu, { Item, Divider, ItemGroup } from 'rc-menu';
 import cssAni from 'css-animation';
+import SubMenu from './SubMenu';
 
 /* eslint-disable no-param-reassign */
 
 class Menu extends React.Component {
-
+  getChildContext() {
+    return {
+      prefixCls: this.props.prefixCls,
+      theme: this.props.className ? this.props.className.replace(this.props.prefixCls + '-', '') : '',
+    };
+  }
   animate(node, show, done) {
     const { prefixCls } = this.props;
     let height;
@@ -42,6 +49,7 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
+    const {className} = this.props;
     const openAnimation = {
       enter(node, done) {
         return me.animate(node, true, done);
@@ -53,6 +61,7 @@ class Menu extends React.Component {
         return me.animate(node, false, done);
       },
     };
+
     const onOpenChange = (openKeys) => {
       if (this.props.onOpenChange) {
         this.props.onOpenChange(openKeys);
@@ -76,18 +85,25 @@ class Menu extends React.Component {
 
 Menu.defaultProps = {
   prefixCls: 'kuma-menu',
-  openAnimation: '',
   inlineIndent: 14,
+  openAnimation: 'zoom',
 };
 Menu.propTypes = {
   mode: PropTypes.string,
   prefixCls: PropTypes.string,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
+  className: PropTypes.string,
+  openAnimation: PropTypes.string,
 };
 
+Menu.childContextTypes = {
+  prefixCls: PropTypes.string,
+  theme: PropTypes.string,
+};
+
+Menu.ItemGroup = ItemGroup;
 Menu.SubMenu = SubMenu;
 Menu.Item = Item;
 Menu.Divider = Divider;
-
 export default Menu;

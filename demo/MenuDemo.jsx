@@ -13,8 +13,18 @@
 const React = require('react');
 const Icon = require('uxcore-icon');
 const Menu = require('../src/Menu');
+const Form = require('uxcore/lib/Form');
 
-const { SubMenu, Item } = Menu;
+const { SubMenu, Item, ItemGroup } = Menu;
+
+const {
+  RadioGroupFormField,
+  SelectFormField,
+  InputFormField: Input,
+  DateFormField: Date,
+  TextAreaFormField: TextArea,
+} = Form;
+const RadioItem = RadioGroupFormField.Item;
 
 // window.Menu = Menu;
 
@@ -31,6 +41,7 @@ class Demo extends React.Component {
       current2: '1',
       current3: '1',
       openKeys: [],
+      status: 'vertical',
     };
   }
 
@@ -201,17 +212,37 @@ class Demo extends React.Component {
           </SubMenu>
         </Menu>
         <p>内外主题</p>
+        <Form jsxvalues={this.state} jsxonChange={(values) => { this.setState(values); }}>
+          <RadioGroupFormField jsxname="status" jsxlabel="是否展开">
+            <RadioItem value="inline" text="inline" />
+            <RadioItem value="vertical" text="vertical" />
+          </RadioGroupFormField>
+        </Form>
         <Menu
           onClick={this.handleClick2.bind(this)}
           style={{ width: 220 }}
           className="kuma-menu-none-border"
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current2]}
-          mode="inline"
+          mode={this.state.status}
+          openAnimation={'zoom'}
         >
           <Item key="1">
             <span>导航一</span>
           </Item>
+          <SubMenu title="分组">
+            <ItemGroup title="水果">
+              <Item key="a">苹果</Item>
+              <Item key="b">香蕉</Item>
+            </ItemGroup>
+            <ItemGroup title="蔬菜">
+              <SubMenu key="sub3" title="青菜">
+                <Item key="7">小白菜</Item>
+                <Item key="8">大青菜</Item>
+              </SubMenu>
+              <Item key="l">萝卜</Item>
+            </ItemGroup>
+          </SubMenu>
           <SubMenu
             key="sub2"
             title={
@@ -238,17 +269,37 @@ class Demo extends React.Component {
           </SubMenu>
         </Menu>
         <p>内外主题（深色版）</p>
+        <Form jsxvalues={this.state} jsxonChange={(values) => { this.setState(values); }}>
+          <RadioGroupFormField jsxname="status" jsxlabel="是否展开">
+            <RadioItem value="inline" text="inline" />
+            <RadioItem value="vertical" text="vertical" />
+          </RadioGroupFormField>
+        </Form>
         <Menu
           onClick={this.handleClick2.bind(this)}
           style={{ width: 220 }}
           className="kuma-menu-none-border-dark"
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current2]}
-          mode="vertical"
+          mode={this.state.status}
+          openAnimation={'zoom'}
         >
           <Item key="1">
             <span><Icon name="shangchuan" />导航一</span>
           </Item>
+          <SubMenu title="分组">
+            <ItemGroup title="水果">
+              <Item key="a">苹果</Item>
+              <Item key="b">香蕉</Item>
+            </ItemGroup>
+            <ItemGroup title="蔬菜">
+              <SubMenu key="sub3" title="青菜">
+                <Item key="7">小白菜</Item>
+                <Item key="8">大青菜</Item>
+              </SubMenu>
+              <Item key="l">萝卜</Item>
+            </ItemGroup>
+          </SubMenu>
           <SubMenu
             key="sub2"
             title={
