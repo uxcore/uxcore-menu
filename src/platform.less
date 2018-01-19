@@ -2,6 +2,8 @@
   // neiwai default theme
   &-none-border{
     border-right: none;
+    
+    
     &.@{menu-prefix-cls}-inline{
       .@{menu-prefix-cls}-item{
       
@@ -40,13 +42,18 @@
   
   
   &-none-border-dark,&-none-border-dark &-sub{
-    color: @white-alpha-2;
+    color: @white-alpha-3;
     background: #2C2F33;
     border: none;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       opacity: .45;
       transition: all .3s;
     }
+    .@{menu-prefix-cls}-submenu-open,.@{menu-prefix-cls}-submenu-active{
+      >.@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow{
+        opacity: 1;
+      }
+    }  
   }
   
   &-none-border-dark&-submenu-popup {
@@ -54,7 +61,7 @@
   }
 
   &-none-border-dark &-inline&-sub {
-    background: #2C2F33;
+    background: @dark-alpha-5;
     //box-shadow: 0 2px 8px rgba(0, 0, 0, .45) inset;
   }
 
@@ -70,7 +77,7 @@
 
   &-none-border-dark &-item,
   &-none-border-dark &-item > a {
-    color: @white-alpha-2;
+    color: @white-alpha-3;
   }
   
   &-none-border-dark &-item-group-title{
@@ -108,23 +115,26 @@
   &-none-border-dark &-submenu-selected,
   &-none-border-dark &-submenu-title:hover {
     background-color: transparent;
-    color: #fff;
+    color: @white-alpha-1;
     > a {
-      color: #fff;
+      color: @white-alpha-1;
     }
-    
+    .@{menu-prefix-cls}-submenu-arrow:after,.uxcore-icon{
+      color: @white-alpha-1 !important;
+      
+    }
   }
 
   &-none-border-dark &-item-selected {
     background: @brand-primary !important;
     border-right: 0;
-    color: #fff;
+    color: @white-alpha-1;
     &:after {
       border-right: 0;
     }
     > a,
     > a:hover {
-      color: #fff;
+      color: @white-alpha-1;
     }
   }
 
