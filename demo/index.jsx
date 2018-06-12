@@ -5,10 +5,8 @@
  * Copyright 2014-2015, Uxcore Team, Alinw.
  * All rights reserved.
  */
+import React from 'react';
+import { render } from 'react-dom';
+import Demo from './MenuDemo';
 
- const React = require('react');
- const ReactDOM = require('react-dom');
-
- const Demo = require('./MenuDemo');
-
- ReactDOM.render(<Demo />, document.getElementById('UXCoreDemo'));
+render(<Demo />, document.getElementById('UXCoreDemo'));
