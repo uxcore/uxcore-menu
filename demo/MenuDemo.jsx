@@ -5,35 +5,19 @@
  * Copyright 2014-2015, Uxcore Team, Alinw.
  * All rights reserved.
  */
-
-// let Menu = require('../src');
-// let SubMenu = Menu.SubMenu;
-// let Item = Item;
-// import Menu, {SubMenu, Item} from '../build';
-const React = require('react');
-const Icon = require('uxcore-icon');
-const Menu = require('../src/Menu');
-const Form = require('uxcore/lib/Form');
+import React from 'react';
+import Form from 'uxcore/lib/Form';
+import Menu from '../src/Menu';
 
 const { SubMenu, Item, ItemGroup } = Menu;
-
-const {
-  RadioGroupFormField,
-  SelectFormField,
-  InputFormField: Input,
-  DateFormField: Date,
-  TextAreaFormField: TextArea,
-} = Form;
+const { RadioGroupFormField } = Form;
 const RadioItem = RadioGroupFormField.Item;
-
-// window.Menu = Menu;
 
 function handleClick(e) {
   console.log('click', e);
 }
 
 class Demo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -43,6 +27,15 @@ class Demo extends React.Component {
       openKeys: [],
       status: 'vertical',
     };
+
+    this.onToggle = this.onToggle.bind(this);
+  }
+
+  onToggle(openKeys) {
+    console.info('openKeys', openKeys);
+    this.setState({
+      openKeys,
+    });
   }
 
   handleClick1(e) {
@@ -67,19 +60,15 @@ class Demo extends React.Component {
     });
   }
 
-  onToggle(info) {
-
-    this.setState({
-      openKeys: info.openKeys,
-    });
-  }
-
   render() {
     return (
       <div>
         <p>水平的顶部导航菜单。</p>
         <Menu
-          onClick={this.handleClick1.bind(this)} selectedKeys={[this.state.current1]}
+          onClick={(e) => {
+            this.handleClick1(e);
+          }}
+          selectedKeys={[this.state.current1]}
           mode="horizontal"
         >
           <Item key="mail">
@@ -88,7 +77,11 @@ class Demo extends React.Component {
           <Item key="app">
             <i className="kuma-icon kuma-icon-wangwang" />导航二
           </Item>
-          <SubMenu title={<span><i className="kuma-icon kuma-icon-setting" />导航 - 子菜单</span>}>
+          <SubMenu
+            title={
+              <span><i className="kuma-icon kuma-icon-setting" />导航 - 子菜单</span>
+            }
+          >
             <Item key="setting:1">选项1</Item>
             <Item key="setting:2">选项2</Item>
             <Item key="setting:3">选项3</Item>
@@ -98,12 +91,14 @@ class Demo extends React.Component {
             </SubMenu>
           </SubMenu>
           <Item key="alipay">
-            <a href="#" target="_blank">导航四 - 链接</a>
+            <a href="//uxco.re" target="_blank" rel="noopener noreferrer">导航四 - 链接</a>
           </Item>
         </Menu>
         <p>内嵌菜单</p>
         <Menu
-          onClick={this.handleClick2.bind(this)}
+          onClick={(e) => {
+            this.handleClick2(e);
+          }}
           style={{ width: 220 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current2]}
@@ -111,7 +106,11 @@ class Demo extends React.Component {
         >
           <SubMenu
             key="sub1"
-            title={<span><i className="kuma-icon kuma-icon-email" /><span>导航一</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-email" /><span>导航一</span>
+              </span>
+            }
           >
             <Item key="1">选项1</Item>
             <Item key="2">选项2</Item>
@@ -120,7 +119,11 @@ class Demo extends React.Component {
           </SubMenu>
           <SubMenu
             key="sub2"
-            title={<span><i className="kuma-icon kuma-icon-wangwang" /><span>导航二</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-wangwang" /><span>导航二</span>
+              </span>
+            }
           >
             <Item key="5">选项5</Item>
             <Item key="6">选项6</Item>
@@ -131,7 +134,11 @@ class Demo extends React.Component {
           </SubMenu>
           <SubMenu
             key="sub4"
-            title={<span><i className="kuma-icon kuma-icon-boss" /><span>导航三</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-boss" /><span>导航三</span>
+              </span>
+            }
           >
             <Item key="9">选项9</Item>
             <Item key="10">选项10</Item>
@@ -141,17 +148,22 @@ class Demo extends React.Component {
         </Menu>
         <p>只展开当前父级菜单</p>
         <Menu
-          onClick={this.handleClick3.bind(this)}
+          onClick={(e) => {
+            this.handleClick3(e);
+          }}
           style={{ width: 220 }}
           openKeys={this.state.openKeys}
-          onOpen={this.onToggle.bind(this)}
-          onClose={this.onToggle.bind(this)}
+          onOpenChange={this.onToggle}
           selectedKeys={[this.state.current3]}
           mode="inline"
         >
           <SubMenu
             key="sub1"
-            title={<span><i className="kuma-icon kuma-icon-wangwang" /><span>导航一</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-wangwang" /><span>导航一</span>
+              </span>
+            }
           >
             <Item key="1">选项1</Item>
             <Item key="2">选项2</Item>
@@ -160,7 +172,11 @@ class Demo extends React.Component {
           </SubMenu>
           <SubMenu
             key="sub2"
-            title={<span><i className="kuma-icon kuma-icon-email" /><span>导航二</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-email" /><span>导航二</span>
+              </span>
+            }
           >
             <Item key="5">选项5</Item>
             <Item key="6">选项6</Item>
@@ -171,7 +187,11 @@ class Demo extends React.Component {
           </SubMenu>
           <SubMenu
             key="sub4"
-            title={<span><i className="kuma-icon kuma-icon-boss" /><span>导航三</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-boss" /><span>导航三</span>
+              </span>
+            }
           >
             <Item key="9">选项9</Item>
             <Item key="10">选项10</Item>
@@ -183,7 +203,11 @@ class Demo extends React.Component {
         <Menu onClick={handleClick} style={{ width: 220 }} mode="vertical">
           <SubMenu
             key="sub1"
-            title={<span><i className="kuma-icon kuma-icon-wangwang" /><span>导航一</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-wangwang" /><span>导航一</span>
+              </span>
+            }
           >
             <Item key="1">选项1</Item>
             <Item key="2">选项2</Item>
@@ -192,7 +216,11 @@ class Demo extends React.Component {
           </SubMenu>
           <SubMenu
             key="sub2"
-            title={<span><i className="kuma-icon kuma-icon-email" /><span>导航二</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-email" /><span>导航二</span>
+              </span>
+            }
           >
             <Item key="5">选项5</Item>
             <Item key="6">选项6</Item>
@@ -203,7 +231,11 @@ class Demo extends React.Component {
           </SubMenu>
           <SubMenu
             key="sub4"
-            title={<span><i className="kuma-icon kuma-icon-boss" /><span>导航三</span></span>}
+            title={
+              <span>
+                <i className="kuma-icon kuma-icon-boss" /><span>导航三</span>
+              </span>
+            }
           >
             <Item key="9">选项9</Item>
             <Item key="10">选项10</Item>
@@ -212,14 +244,21 @@ class Demo extends React.Component {
           </SubMenu>
         </Menu>
         <p>内外主题</p>
-        <Form jsxvalues={this.state} jsxonChange={(values) => { this.setState(values); }}>
+        <Form
+          jsxvalues={this.state}
+          jsxonChange={(values) => {
+            this.setState(values);
+          }}
+        >
           <RadioGroupFormField jsxname="status" jsxlabel="是否展开">
             <RadioItem value="inline" text="inline" />
             <RadioItem value="vertical" text="vertical" />
           </RadioGroupFormField>
         </Form>
         <Menu
-          onClick={this.handleClick2.bind(this)}
+          onClick={(e) => {
+            this.handleClick2(e);
+          }}
           style={{ width: 220 }}
           className="kuma-menu-none-border"
           defaultOpenKeys={['sub1']}
@@ -243,12 +282,7 @@ class Demo extends React.Component {
               <Item key="l">萝卜</Item>
             </ItemGroup>
           </SubMenu>
-          <SubMenu
-            key="sub2"
-            title={
-              <span>导航二</span>
-            }
-          >
+          <SubMenu key="sub2" title={<span>导航二</span>}>
             <Item key="5">选项5</Item>
             <Item key="6">选项6</Item>
             <SubMenu key="sub3" title="三级导航">
@@ -256,12 +290,7 @@ class Demo extends React.Component {
               <Item key="8">选项8</Item>
             </SubMenu>
           </SubMenu>
-          <SubMenu
-            key="sub4"
-            title={
-              <span>导航三</span>
-            }
-          >
+          <SubMenu key="sub4" title={<span>导航三</span>}>
             <Item key="9">选项9</Item>
             <Item key="10">选项10</Item>
             <Item key="11">选项11</Item>
@@ -269,14 +298,21 @@ class Demo extends React.Component {
           </SubMenu>
         </Menu>
         <p>内外主题（深色版）</p>
-        <Form jsxvalues={this.state} jsxonChange={(values) => { this.setState(values); }}>
+        <Form
+          jsxvalues={this.state}
+          jsxonChange={(values) => {
+            this.setState(values);
+          }}
+        >
           <RadioGroupFormField jsxname="status" jsxlabel="是否展开">
             <RadioItem value="inline" text="inline" />
             <RadioItem value="vertical" text="vertical" />
           </RadioGroupFormField>
         </Form>
         <Menu
-          onClick={this.handleClick2.bind(this)}
+          onClick={(e) => {
+            this.handleClick2(e);
+          }}
           style={{ width: 220 }}
           className="kuma-menu-none-border-dark"
           defaultOpenKeys={['sub1']}
@@ -285,7 +321,7 @@ class Demo extends React.Component {
           openAnimation={'zoom'}
         >
           <Item key="1">
-            <span><Icon name="shangchuan" />导航一</span>
+            <span>导航一</span>
           </Item>
           <SubMenu title="分组">
             <ItemGroup title="水果">
@@ -300,12 +336,7 @@ class Demo extends React.Component {
               <Item key="l">萝卜</Item>
             </ItemGroup>
           </SubMenu>
-          <SubMenu
-            key="sub2"
-            title={
-              <span>导航二</span>
-            }
-          >
+          <SubMenu key="sub2" title={<span>导航二</span>}>
             <Item key="5">选项5</Item>
             <Item key="6">选项6</Item>
             <SubMenu key="sub3" title="三级导航">
@@ -313,12 +344,7 @@ class Demo extends React.Component {
               <Item key="8">选项8</Item>
             </SubMenu>
           </SubMenu>
-          <SubMenu
-            key="sub4"
-            title={
-              <span>导航三</span>
-            }
-          >
+          <SubMenu key="sub4" title={<span>导航三</span>}>
             <Item key="9">选项9</Item>
             <Item key="10">选项10</Item>
             <Item key="11">选项11</Item>
@@ -330,4 +356,4 @@ class Demo extends React.Component {
   }
 }
 
-module.exports = Demo;
+export default Demo;
