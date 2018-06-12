@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RcMenu, { Item, Divider, ItemGroup } from 'rc-menu';
-import cssAni from 'css-animation';
+import cssAnimation from 'css-animation';
 import SubMenu from './SubMenu';
 
 /* eslint-disable no-param-reassign */
@@ -17,13 +17,16 @@ class Menu extends React.Component {
   getChildContext() {
     return {
       prefixCls: this.props.prefixCls,
-      theme: this.props.className ? this.props.className.replace(`${this.props.prefixCls  }-`, '') : '',
+      theme: this.props.className
+        ? this.props.className.replace(`${this.props.prefixCls}-`, '')
+        : '',
     };
   }
+
   animate(node, show, done) {
     const { prefixCls } = this.props;
     let height;
-    return cssAni(node, `${prefixCls}-collapse`, {
+    return cssAnimation(node, `${prefixCls}-collapse`, {
       start() {
         if (!show) {
           node.style.height = `${node.offsetHeight}px`;
@@ -48,6 +51,9 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
+
+    const { onOpen, onClose, ...props } = this.props;
+
     const openAnimation = {
       enter(node, done) {
         return me.animate(node, true, done);
@@ -61,31 +67,44 @@ class Menu extends React.Component {
     };
 
     const onOpenChange = (openKeys) => {
-      if (this.props.onOpenChange) {
-        this.props.onOpenChange(openKeys);
+      if (props.onOpenChange) {
+        props.onOpenChange(openKeys);
       }
 
-      if (this.props.onOpen) {
-        this.props.onOpen({ openKeys });
+      if (onOpen) {
+        onOpen({ openKeys });
       }
 
-      if (this.props.onClose) {
-        this.props.onClose({ openKeys });
+      if (onClose) {
+        onClose({ openKeys });
       }
     };
 
-    if (this.props.mode === 'inline') {
-      return <RcMenu {...this.props} openAnimation={openAnimation} onOpenChange={onOpenChange} />;
+    if (props.mode === 'inline') {
+      return (
+        <RcMenu
+          {...props}
+          openAnimation={openAnimation}
+          onOpenChange={onOpenChange}
+        />
+      );
     }
-    return <RcMenu {...this.props} onOpenChange={onOpenChange} />;
+
+    return <RcMenu {...props} onOpenChange={onOpenChange} />;
   }
 }
 
 Menu.defaultProps = {
+  mode: 'vertical',
   prefixCls: 'kuma-menu',
+  onOpen: () => {},
+  onClose: () => {},
+  onOpenChange: () => {},
   inlineIndent: 14,
+  className: '',
   openAnimation: 'zoom',
 };
+
 Menu.propTypes = {
   mode: PropTypes.string,
   prefixCls: PropTypes.string,
