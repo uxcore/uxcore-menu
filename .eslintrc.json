@@ -1,15 +1,26 @@
 {
   "extends": "airbnb",
-  "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true,
+    "mocha": true
   },
   "rules": {
+    "react/no-unused-prop-types": "off",
+    "react/forbid-prop-types": "off",
     "import/no-extraneous-dependencies": "off",
-    "react/jsx-no-bind": "off",
-    "react/no-unused-prop-types": "off"
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "react/prefer-stateless-function": "off"
   }
 }

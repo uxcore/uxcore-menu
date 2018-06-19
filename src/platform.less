@@ -1,13 +1,12 @@
 .@{menu-prefix-cls} {
   // neiwai default theme
-  &-none-border{
+  &-none-border {
     border-right: none;
-    
-    
-    &.@{menu-prefix-cls}-inline{
-      .@{menu-prefix-cls}-item{
-      
-        &::after{
+
+    &.@{menu-prefix-cls}-inline {
+      .@{menu-prefix-cls}-item {
+
+        &::after {
           content: " ";
           // height: 100%;
           border-left: 3px solid @brand-primary;
@@ -20,8 +19,8 @@
           transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
       }
-      
-      .@{menu-prefix-cls}-item-selected{
+
+      .@{menu-prefix-cls}-item-selected {
         background: @brand-primary-alpha-8;
         &::after {
           opacity: 1;
@@ -29,7 +28,7 @@
         }
       }
     }
-    
+
     .@{menu-prefix-cls}-submenu-open {
       background-color: transparent;
       color: #000;
@@ -38,10 +37,8 @@
       }
     }
   }
-  
-  
-  
-  &-none-border-dark,&-none-border-dark &-sub{
+
+  &-none-border-dark, &-none-border-dark &-sub {
     color: @white-alpha-3;
     background: #2C2F33;
     border: none;
@@ -49,13 +46,13 @@
       opacity: .45;
       transition: all .3s;
     }
-    .@{menu-prefix-cls}-submenu-open,.@{menu-prefix-cls}-submenu-active{
-      >.@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow{
+    .@{menu-prefix-cls}-submenu-open, .@{menu-prefix-cls}-submenu-active {
+      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
         opacity: 1;
       }
-    }  
+    }
   }
-  
+
   &-none-border-dark&-submenu-popup {
     background: transparent;
   }
@@ -79,8 +76,8 @@
   &-none-border-dark &-item > a {
     color: @white-alpha-3;
   }
-  
-  &-none-border-dark &-item-group-title{
+
+  &-none-border-dark &-item-group-title {
     color: @white-alpha-4;
   }
 
@@ -119,9 +116,9 @@
     > a {
       color: @white-alpha-1;
     }
-    .@{menu-prefix-cls}-submenu-arrow:after,.uxcore-icon{
+    .@{menu-prefix-cls}-submenu-arrow:after, .uxcore-icon {
       color: @white-alpha-1 !important;
-      
+
     }
   }
 

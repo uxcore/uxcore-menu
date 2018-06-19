@@ -5,9 +5,8 @@
  * Copyright 2014-2015, Uxcore Team, Alinw.
  * All rights reserved.
  */
-
 @menu-prefix-cls: kuma-menu;
-@iconfont-css-prefix:kuma-icon;
+@iconfont-css-prefix: kuma-icon;
 .clearfix() {
   zoom: 1;
   &:before,
@@ -41,14 +40,13 @@
 @zindex-dropdown: 1050;
 @primary-color: @brand-primary;
 @border-color-split: hsv(0, 0, 91%);
-@border-width-base      : 1px;
-@border-style-base      : solid;
+@border-width-base: 1px;
+@border-style-base: solid;
 @menu-inline-toplevel-item-height: 40px;
 @menu-item-height: 40px;
 @menu-collapsed-width: 80px;
-@text-color-dark        : fade(#fff,85%);
-@disabled-color         : fade(#000, 25%);
-
+@text-color-dark: fade(#fff, 85%);
+@disabled-color: fade(#000, 25%);
 
 // default theme
 .@{menu-prefix-cls} {
@@ -154,7 +152,7 @@
   }
 
   &:not(&-horizontal) &-item-selected {
-   // background-color: @item-active-bg;
+    // background-color: @item-active-bg;
   }
 
   &-inline,
@@ -255,33 +253,32 @@
           right: 16px;
           top: 0;
         }
-        
       }
       > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
         &:after,
         &:before {
-         //background: linear-gradient(to right, @primary-color, @primary-color);
+          //background: linear-gradient(to right, @primary-color, @primary-color);
         }
       }
     }
-    
+
     &-vertical,
     &-vertical-left,
-    &-vertical-right{
+    &-vertical-right {
       > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-          &:after {
-            content: "\e643";
-          }
-      }
-  }
-    &-open {
-        &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-          &:after {
-            -ms-transform: rotate(180deg);
-            transform: rotate(180deg);
-          }
+        &:after {
+          content: "\e643";
         }
       }
+    }
+    &-open {
+      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+        &:after {
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+      }
+    }
   }
 
   &-vertical &-submenu-selected,
@@ -337,7 +334,6 @@
   &-inline {
     .@{menu-prefix-cls}-item {
       position: relative;
-      
     }
 
     .@{menu-prefix-cls}-item,
@@ -370,7 +366,6 @@
 
   &-inline {
     width: 100%;
-   
 
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
@@ -435,7 +430,6 @@
     box-shadow: none;
   }
 
-  
   &-sub&-inline {
     padding: 0;
     border: 0;
@@ -454,8 +448,8 @@
     & .@{menu-prefix-cls}-item-group-title {
       padding-left: 32px;
     }
-    
-    &-vertical{
+
+    &-vertical {
       & .@{menu-prefix-cls}-item-group-title {
         padding-left: 28px;
       }
@@ -478,7 +472,7 @@
       cursor: not-allowed;
     }
   }
-  
+
   &-open {
     &-slide-up-enter, &-slide-up-appear {
       .effect();
@@ -486,24 +480,24 @@
       animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
       animation-play-state: paused;
     }
-  
+
     &-slide-up-leave {
       .effect();
       opacity: 1;
       animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
       animation-play-state: paused;
     }
-  
+
     &-slide-up-enter&-slide-up-enter-active, &-slide-up-appear&-slide-up-appear-active {
       animation-name: rcMenuOpenSlideUpIn;
       animation-play-state: running;
     }
-  
+
     &-slide-up-leave&-slide-up-leave-active {
       animation-name: rcMenuOpenSlideUpOut;
       animation-play-state: running;
     }
-  
+
     @keyframes rcMenuOpenSlideUpIn {
       0% {
         opacity: 0;
@@ -528,30 +522,30 @@
         transform: scaleY(0);
       }
     }
-  
+
     &-zoom-enter, &-zoom-appear {
       opacity: 0;
       .effect();
       animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
       animation-play-state: paused;
     }
-  
+
     &-zoom-leave {
       .effect();
       animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
       animation-play-state: paused;
     }
-  
+
     &-zoom-enter&-zoom-enter-active, &-zoom-appear&-zoom-appear-active {
       animation-name: rcMenuOpenZoomIn;
       animation-play-state: running;
     }
-  
+
     &-zoom-leave&-zoom-leave-active {
       animation-name: rcMenuOpenZoomOut;
       animation-play-state: running;
     }
-  
+
     @keyframes rcMenuOpenZoomIn {
       0% {
         opacity: 0;
@@ -564,7 +558,7 @@
     }
     @keyframes rcMenuOpenZoomOut {
       0% {
-  
+
         transform: scale(1, 1);
       }
       100% {
@@ -574,7 +568,5 @@
     }
   }
 }
-
-
 
 @import './platform';
