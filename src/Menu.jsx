@@ -51,7 +51,6 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
-
     const { onOpen, onClose, ...props } = this.props;
 
     const openAnimation = {
