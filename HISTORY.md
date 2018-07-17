@@ -1,5 +1,9 @@
 # History
 
+## 4.0.0
+
+* `CHANGED` move 3.0.2 to 4.0.0
+
 ## 3.0.2
 
 * `CHANGED` upgrade to react 16.x
