@@ -5,9 +5,10 @@
  * Copyright 2014-2015, Uxcore Team, Alinw.
  * All rights reserved.
  */
-@menu-prefix-cls: kuma-menu;
+@__menuPrefixCls: kuma-menu;
 @iconfont-css-prefix: kuma-icon;
-.clearfix() {
+
+.menu-clearfix() {
   zoom: 1;
   &:before,
   &:after {
@@ -22,44 +23,44 @@
   }
 }
 
-.effect() {
+.menu-effect() {
   animation-duration: .3s;
   animation-fill-mode: both;
   transform-origin: 0 0;
 }
 
 // v
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, .15);
-@component-background: #fff;
-@text-color-secondary: fade(#000, 45%);
-@line-height-base: 1.5;
-@font-size-base: 14px;
-@item-active-bg: rgba(73, 142, 230, 0.06);
-@text-color: fade(#000, 65%);
-@border-radius-base: 4px;
-@zindex-dropdown: 1050;
-@primary-color: @brand-primary;
-@border-color-split: hsv(0, 0, 91%);
-@border-width-base: 1px;
-@border-style-base: solid;
+@menu-box-shadow-base: 0 2px 8px rgba(0, 0, 0, .15);
+@menu-component-background: #fff;
+@menu-text-color-secondary: fade(#000, 45%);
+@menu-line-height-base: 1.5;
+@menu-font-size-base: 14px;
+@menu-item-active-bg: rgba(73, 142, 230, 0.06);
+@menu-text-color: fade(#000, 65%);
+@menu-border-radius-base: 4px;
+@menu-zindex-dropdown: 1050;
+@menu-primary-color: @brand-primary;
+@menu-border-color-split: hsv(0, 0, 91%);
+@menu-border-width-base: 1px;
+@menu-border-style-base: solid;
 @menu-inline-toplevel-item-height: 40px;
 @menu-item-height: 40px;
 @menu-collapsed-width: 80px;
-@text-color-dark: fade(#fff, 85%);
-@disabled-color: fade(#000, 25%);
+@menu-text-color-dark: fade(#fff, 85%);
+@menu-disabled-color: fade(#000, 25%);
 
 // default theme
-.@{menu-prefix-cls} {
+.@{__menuPrefixCls} {
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  box-shadow: @box-shadow-base;
-  background: @component-background;
+  box-shadow: @menu-box-shadow-base;
+  background: @menu-component-background;
   line-height: 0; // Fix display inline-block gap
   transition: background .3s, width .2s;
   color: rgba(0, 0, 0, 0.65);
-  .clearfix;
+  .menu-clearfix;
 
   ul,
   ol {
@@ -73,9 +74,9 @@
   }
 
   &-item-group-title {
-    color: @text-color-secondary;
-    font-size: @font-size-base;
-    line-height: @line-height-base;
+    color: @menu-text-color-secondary;
+    font-size: @menu-font-size-base;
+    line-height: @menu-line-height-base;
     padding: 8px 24px;
     transition: all .3s;
   }
@@ -87,7 +88,7 @@
 
   &-item:active,
   &-submenu-title:active {
-    background: @item-active-bg;
+    background: @menu-item-active-bg;
   }
 
   &-submenu &-sub {
@@ -97,9 +98,9 @@
 
   &-item > a {
     display: block;
-    color: @text-color;
+    color: @menu-text-color;
     &:hover {
-      color: @primary-color;
+      color: @menu-primary-color;
     }
     &:focus {
       text-decoration: none;
@@ -120,7 +121,7 @@
   &-item-divider {
     height: 1px;
     overflow: hidden;
-    background-color: @border-color-split;
+    background-color: @menu-border-color-split;
     line-height: 0;
   }
 
@@ -129,7 +130,7 @@
   &:not(&-inline) &-submenu-open,
   &-submenu-active,
   &-submenu-title:hover {
-    color: @primary-color;
+    color: @menu-primary-color;
   }
 
   &-horizontal &-item,
@@ -144,24 +145,24 @@
   }
 
   &-item-selected {
-    color: @primary-color;
+    color: @menu-primary-color;
     > a,
     > a:hover {
-      color: @primary-color;
+      color: @menu-primary-color;
     }
   }
 
   &:not(&-horizontal) &-item-selected {
-    // background-color: @item-active-bg;
+    // background-color: @menu-item-active-bg;
   }
 
   &-inline,
   &-vertical,
   &-vertical-left {
-    border-right: @border-width-base @border-style-base @border-color-split;
+    border-right: @menu-border-width-base @menu-border-style-base @menu-border-color-split;
   }
   &-vertical-right {
-    border-left: @border-width-base @border-style-base @border-color-split;
+    border-left: @menu-border-width-base @menu-border-style-base @menu-border-color-split;
   }
 
   &-vertical&-sub,
@@ -170,7 +171,7 @@
     border-right: 0;
     padding: 0;
     transform-origin: 0 0;
-    .@{menu-prefix-cls}-item {
+    .@{__menuPrefixCls}-item {
       border-right: 0;
       margin-left: 0;
       left: 0;
@@ -178,8 +179,8 @@
         border-right: 0;
       }
     }
-    > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-submenu {
+    > .@{__menuPrefixCls}-item,
+    > .@{__menuPrefixCls}-submenu {
       transform-origin: 0 0;
     }
   }
@@ -217,19 +218,19 @@
     overflow: hidden;
     padding: 0;
     line-height: 0;
-    // background-color: @border-color-split;
+    // background-color: @menu-border-color-split;
   }
 
   &-submenu {
     &-popup {
       position: absolute;
-      border-radius: @border-radius-base;
-      z-index: @zindex-dropdown;
+      border-radius: @menu-border-radius-base;
+      z-index: @menu-zindex-dropdown;
     }
 
-    > .@{menu-prefix-cls} {
-      background-color: @component-background;
-      border-radius: @border-radius-base;
+    > .@{__menuPrefixCls} {
+      background-color: @menu-component-background;
+      border-radius: @menu-border-radius-base;
       &-submenu-title:after {
         transition: transform .3s ease-in-out;
       }
@@ -239,7 +240,7 @@
     &-vertical-left,
     &-vertical-right,
     &-inline {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      > .@{__menuPrefixCls}-submenu-title .@{__menuPrefixCls}-submenu-arrow {
         &:after {
           font-family: "kuma" !important;
           font-style: normal;
@@ -254,10 +255,10 @@
           top: 0;
         }
       }
-      > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
+      > .@{__menuPrefixCls}-submenu-title:hover .@{__menuPrefixCls}-submenu-arrow {
         &:after,
         &:before {
-          //background: linear-gradient(to right, @primary-color, @primary-color);
+          //background: linear-gradient(to right, @menu-primary-color, @menu-primary-color);
         }
       }
     }
@@ -265,14 +266,14 @@
     &-vertical,
     &-vertical-left,
     &-vertical-right {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      > .@{__menuPrefixCls}-submenu-title .@{__menuPrefixCls}-submenu-arrow {
         &:after {
           content: "\e643";
         }
       }
     }
     &-open {
-      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      &.@{__menuPrefixCls}-submenu-inline > .@{__menuPrefixCls}-submenu-title .@{__menuPrefixCls}-submenu-arrow {
         &:after {
           -ms-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -284,20 +285,20 @@
   &-vertical &-submenu-selected,
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
-    color: @primary-color;
+    color: @menu-primary-color;
     > a {
-      color: @primary-color;
+      color: @menu-primary-color;
     }
   }
 
   &-horizontal {
     border: 0;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-bottom: @menu-border-width-base @menu-border-style-base @menu-border-color-split;
     box-shadow: none;
     line-height: 46px;
 
-    > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-submenu {
+    > .@{__menuPrefixCls}-item,
+    > .@{__menuPrefixCls}-submenu {
       position: relative;
       top: 1px;
       float: left;
@@ -307,15 +308,15 @@
       &-active,
       &-open,
       &-selected {
-        border-bottom: 2px solid @primary-color;
-        ///color: @primary-color;
+        border-bottom: 2px solid @menu-primary-color;
+        ///color: @menu-primary-color;
       }
 
       > a {
         display: block;
-        color: @text-color;
+        color: @menu-text-color;
         &:hover {
-          color: @primary-color;
+          color: @menu-primary-color;
         }
       }
     }
@@ -332,14 +333,14 @@
   &-vertical-left,
   &-vertical-right,
   &-inline {
-    .@{menu-prefix-cls}-item {
+    .@{__menuPrefixCls}-item {
       position: relative;
     }
 
-    .@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-submenu-title {
+    .@{__menuPrefixCls}-item,
+    .@{__menuPrefixCls}-submenu-title {
       padding: 0 16px;
-      font-size: @font-size-base;
+      font-size: @menu-font-size-base;
       line-height: @menu-item-height;
       height: @menu-item-height;
       margin-top: 4px;
@@ -349,16 +350,16 @@
     }
 
     // disable margin collapsed
-    .@{menu-prefix-cls}-submenu {
+    .@{__menuPrefixCls}-submenu {
       padding-bottom: 0.01px;
     }
 
-    .@{menu-prefix-cls}-item:not(:last-child) {
+    .@{__menuPrefixCls}-item:not(:last-child) {
       margin-bottom: 8px;
     }
 
-    > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+    > .@{__menuPrefixCls}-item,
+    > .@{__menuPrefixCls}-submenu > .@{__menuPrefixCls}-submenu-title {
       line-height: @menu-inline-toplevel-item-height;
       height: @menu-inline-toplevel-item-height;
     }
@@ -367,21 +368,21 @@
   &-inline {
     width: 100%;
 
-    .@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-submenu-title {
+    .@{__menuPrefixCls}-item,
+    .@{__menuPrefixCls}-submenu-title {
       //width: ~"calc(100% + 1px)";
     }
   }
 
   &-inline-collapsed {
     width: @menu-collapsed-width;
-    > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+    > .@{__menuPrefixCls}-item,
+    > .@{__menuPrefixCls}-item-group > .@{__menuPrefixCls}-item-group-list > .@{__menuPrefixCls}-item,
+    > .@{__menuPrefixCls}-submenu > .@{__menuPrefixCls}-submenu-title {
       left: 0;
       text-overflow: clip;
       padding: 0 (@menu-collapsed-width - 16px) / 2 !important;
-      .@{menu-prefix-cls}-submenu-arrow {
+      .@{__menuPrefixCls}-submenu-arrow {
         display: none;
       }
       .@{iconfont-css-prefix} {
@@ -401,11 +402,11 @@
         display: none;
       }
       a {
-        color: @text-color-dark;
+        color: @menu-text-color-dark;
       }
     }
 
-    .@{menu-prefix-cls}-item-group-title {
+    .@{__menuPrefixCls}-item-group-title {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -417,8 +418,8 @@
   &-item-group-list {
     margin: 0;
     padding: 0;
-    .@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-submenu-title {
+    .@{__menuPrefixCls}-item,
+    .@{__menuPrefixCls}-submenu-title {
       padding: 0 16px 0 24px;
     }
   }
@@ -437,20 +438,20 @@
     border-radius: 0;
     transition: all 0.3s ease;
     overflow: hidden;
-    & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+    & > .@{__menuPrefixCls}-item,
+    & > .@{__menuPrefixCls}-submenu > .@{__menuPrefixCls}-submenu-title {
       line-height: @menu-item-height;
       height: @menu-item-height;
       list-style-type: disc;
       list-style-position: inside;
     }
 
-    & .@{menu-prefix-cls}-item-group-title {
+    & .@{__menuPrefixCls}-item-group-title {
       padding-left: 32px;
     }
 
     &-vertical {
-      & .@{menu-prefix-cls}-item-group-title {
+      & .@{__menuPrefixCls}-item-group-title {
         padding-left: 28px;
       }
     }
@@ -459,30 +460,30 @@
   // Disabled state sets text to gray and nukes hover/tab effects
   &-item-disabled,
   &-submenu-disabled {
-    color: @disabled-color !important;
+    color: @menu-disabled-color !important;
     cursor: not-allowed;
     background: none;
     border-color: transparent !important;
     > a {
-      color: @disabled-color !important;
+      color: @menu-disabled-color !important;
       pointer-events: none;
     }
-    > .@{menu-prefix-cls}-submenu-title {
-      color: @disabled-color !important;
+    > .@{__menuPrefixCls}-submenu-title {
+      color: @menu-disabled-color !important;
       cursor: not-allowed;
     }
   }
 
   &-open {
     &-slide-up-enter, &-slide-up-appear {
-      .effect();
+      .menu-effect();
       opacity: 0;
       animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
       animation-play-state: paused;
     }
 
     &-slide-up-leave {
-      .effect();
+      .menu-effect();
       opacity: 1;
       animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
       animation-play-state: paused;
@@ -525,13 +526,13 @@
 
     &-zoom-enter, &-zoom-appear {
       opacity: 0;
-      .effect();
+      .menu-effect();
       animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
       animation-play-state: paused;
     }
 
     &-zoom-leave {
-      .effect();
+      .menu-effect();
       animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
       animation-play-state: paused;
     }
