@@ -1,5 +1,9 @@
 # History
 
+## 4.0.2 / 2018-09-05
+
+* `CHANGED` support js style export
+
 ## 4.0.0
 
 * `CHANGED` move 3.0.2 to 4.0.0
