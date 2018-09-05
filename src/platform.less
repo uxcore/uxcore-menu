@@ -1,10 +1,10 @@
-.@{menu-prefix-cls} {
+.@{__menuPrefixCls} {
   // neiwai default theme
   &-none-border {
     border-right: none;
 
-    &.@{menu-prefix-cls}-inline {
-      .@{menu-prefix-cls}-item {
+    &.@{__menuPrefixCls}-inline {
+      .@{__menuPrefixCls}-item {
 
         &::after {
           content: " ";
@@ -20,7 +20,7 @@
         }
       }
 
-      .@{menu-prefix-cls}-item-selected {
+      .@{__menuPrefixCls}-item-selected {
         background: @brand-primary-alpha-8;
         &::after {
           opacity: 1;
@@ -29,7 +29,7 @@
       }
     }
 
-    .@{menu-prefix-cls}-submenu-open {
+    .@{__menuPrefixCls}-submenu-open {
       background-color: transparent;
       color: #000;
       > a {
@@ -42,12 +42,12 @@
     color: @white-alpha-3;
     background: #2C2F33;
     border: none;
-    .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+    .@{__menuPrefixCls}-submenu-title .@{__menuPrefixCls}-submenu-arrow {
       opacity: .45;
       transition: all .3s;
     }
-    .@{menu-prefix-cls}-submenu-open, .@{menu-prefix-cls}-submenu-active {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+    .@{__menuPrefixCls}-submenu-open, .@{__menuPrefixCls}-submenu-active {
+      > .@{__menuPrefixCls}-submenu-title .@{__menuPrefixCls}-submenu-arrow {
         opacity: 1;
       }
     }
@@ -116,7 +116,7 @@
     > a {
       color: @white-alpha-1;
     }
-    .@{menu-prefix-cls}-submenu-arrow:after, .uxcore-icon {
+    .@{__menuPrefixCls}-submenu-arrow:after, .uxcore-icon {
       color: @white-alpha-1 !important;
 
     }
@@ -148,7 +148,7 @@
       opacity: 0.8;
       color: #2C2F33 !important;
     }
-    > .@{menu-prefix-cls}-submenu-title {
+    > .@{__menuPrefixCls}-submenu-title {
       color: #2C2F33 !important;
     }
   }
