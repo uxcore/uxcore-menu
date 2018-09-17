@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { SubMenu as RcSubMenu } from 'rc-menu';
+import { ItemGroup as RcItemGroup } from 'rc-menu';
 import { getClampProps } from './utils';
 
-class SubMenu extends React.Component {
+class ItemGroup extends React.Component {
   render() {
     const { title, ...props } = this.props;
 
     const {
       mode,
       level,
-      theme,
       prefixCls,
       lineClamp,
     } = this.context;
@@ -22,7 +20,7 @@ class SubMenu extends React.Component {
     } = getClampProps({
       mode,
       level: props.level || level,
-      className: `${prefixCls}-submenu-title-text ${prefixCls}-clamp-text`,
+      className: `${prefixCls}-item-group-text ${prefixCls}-clamp-text`,
       lineClamp,
     });
 
@@ -37,36 +35,30 @@ class SubMenu extends React.Component {
       );
     } else {
       titleJSX = (
-        <span {...titleProps} className={`${prefixCls}-submenu-title-text`}>{title}</span>
+        <span {...titleProps} className={`${prefixCls}-item-group-text`}>{title}</span>
       );
     }
     props.title = titleJSX;
 
-    if (clamp) {
-      props.className = classnames(props.className, `${prefixCls}-submenu-clamp`);
-    }
-
     return (
-      <RcSubMenu
+      <RcItemGroup
         {...props}
-        ref={this.saveSubMenu}
-        popupClassName={classnames(`${prefixCls}-${theme}`)}
       />
     );
   }
 }
 
-SubMenu.propTypes = {
-  ...RcSubMenu.propTypes,
+ItemGroup.propTypes = {
+  ...RcItemGroup.propTypes,
   title: PropTypes.node,
 };
 
-SubMenu.defaultProps = {
-  ...RcSubMenu.defaultProps,
+ItemGroup.defaultProps = {
+  ...RcItemGroup.defaultProps,
   title: null,
 };
 
-SubMenu.contextTypes = {
+ItemGroup.contextTypes = {
   mode: PropTypes.string,
   level: PropTypes.number,
   theme: PropTypes.string,
@@ -74,4 +66,4 @@ SubMenu.contextTypes = {
   lineClamp: PropTypes.number,
 };
 
-export default SubMenu;
+export default ItemGroup;

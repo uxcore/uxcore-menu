@@ -27,6 +27,10 @@ class Item extends React.Component {
       lineClamp,
     });
 
+    if (typeof children === 'string') {
+      spanProps.title = children;
+    }
+
     return (
       <RcMenuItem
         className={clamp ? `${prefixCls}-item-clamp` : ''}

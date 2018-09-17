@@ -7,10 +7,11 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcMenu, { Divider, ItemGroup } from 'rc-menu';
+import RcMenu, { Divider } from 'rc-menu';
 import cssAnimation from 'css-animation';
 import SubMenu from './SubMenu';
 import Item from './Item';
+import ItemGroup from './ItemGroup';
 
 /* eslint-disable no-param-reassign */
 
