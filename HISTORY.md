@@ -3,6 +3,7 @@
 ## 4.0.3 / 2018-09-17
 
 * `NEW` add new props `lineClamp`
+* `CHANGED` item && icon padding
 
 ## 4.0.2 / 2018-09-05
 

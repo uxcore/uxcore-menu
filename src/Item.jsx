@@ -7,6 +7,7 @@ class Item extends React.Component {
   render() {
     const {
       mode,
+      level,
       prefixCls,
       lineClamp,
     } = this.context;
@@ -21,6 +22,7 @@ class Item extends React.Component {
       clamp,
     } = getClampProps({
       mode,
+      level,
       className: `${prefixCls}-clamp-text`,
       lineClamp,
     });
@@ -46,6 +48,7 @@ Item.defaultProps = {
 
 Item.contextTypes = {
   mode: PropTypes.string,
+  level: PropTypes.number,
   prefixCls: PropTypes.string,
   lineClamp: PropTypes.number,
 };

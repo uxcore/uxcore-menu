@@ -18,6 +18,7 @@ class Menu extends React.Component {
   getChildContext() {
     return {
       mode: this.props.mode,
+      level: this.props.level,
       prefixCls: this.props.prefixCls,
       theme: this.props.className
         ? this.props.className.replace(`${this.props.prefixCls}-`, '')
@@ -98,6 +99,7 @@ class Menu extends React.Component {
 
 Menu.defaultProps = {
   mode: 'vertical',
+  level: 1,
   prefixCls: 'kuma-menu',
   onOpen: () => {},
   onClose: () => {},
@@ -110,6 +112,7 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
   mode: PropTypes.string,
+  level: PropTypes.number,
   prefixCls: PropTypes.string,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
@@ -121,6 +124,7 @@ Menu.propTypes = {
 
 Menu.childContextTypes = {
   mode: PropTypes.string,
+  level: PropTypes.number,
   prefixCls: PropTypes.string,
   theme: PropTypes.string,
   lineClamp: PropTypes.number,

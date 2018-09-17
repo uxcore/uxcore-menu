@@ -12,6 +12,7 @@ class SubMenu extends React.Component {
 
     const {
       mode,
+      level,
       prefixCls,
       lineClamp,
     } = this.context;
@@ -21,6 +22,7 @@ class SubMenu extends React.Component {
       clamp,
     } = getClampProps({
       mode,
+      level,
       className: `${prefixCls}-submenu-title-text ${prefixCls}-clamp-text`,
       lineClamp,
     });
@@ -63,6 +65,7 @@ SubMenu.defaultProps = {
 
 SubMenu.contextTypes = {
   mode: PropTypes.string,
+  level: PropTypes.number,
   theme: PropTypes.string,
   prefixCls: PropTypes.string,
   lineClamp: PropTypes.number,
