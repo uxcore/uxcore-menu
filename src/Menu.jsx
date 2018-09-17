@@ -7,19 +7,22 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcMenu, { Item, Divider, ItemGroup } from 'rc-menu';
+import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import cssAnimation from 'css-animation';
 import SubMenu from './SubMenu';
+import Item from './Item';
 
 /* eslint-disable no-param-reassign */
 
 class Menu extends React.Component {
   getChildContext() {
     return {
+      mode: this.props.mode,
       prefixCls: this.props.prefixCls,
       theme: this.props.className
         ? this.props.className.replace(`${this.props.prefixCls}-`, '')
         : '',
+      lineClamp: this.props.lineClamp,
     };
   }
 
@@ -51,7 +54,7 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
-    const { onOpen, onClose, ...props } = this.props;
+    const { onOpen, onClose, lineClamp, ...props } = this.props;
 
     const openAnimation = {
       enter(node, done) {
@@ -100,6 +103,7 @@ Menu.defaultProps = {
   onClose: () => {},
   onOpenChange: () => {},
   inlineIndent: 14,
+  lineClamp: 1,
   className: '',
   openAnimation: 'zoom',
 };
@@ -110,13 +114,16 @@ Menu.propTypes = {
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   onOpenChange: PropTypes.func,
+  lineClamp: PropTypes.number,
   className: PropTypes.string,
   openAnimation: PropTypes.string,
 };
 
 Menu.childContextTypes = {
+  mode: PropTypes.string,
   prefixCls: PropTypes.string,
   theme: PropTypes.string,
+  lineClamp: PropTypes.number,
 };
 
 Menu.ItemGroup = ItemGroup;
