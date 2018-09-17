@@ -1,4 +1,4 @@
-const isLineClampSupport = (() => {
+let isLineClampSupport = (() => {
   const div = document.createElement('div');
   return [
     'lineClamp',
@@ -6,11 +6,15 @@ const isLineClampSupport = (() => {
   ].filter(prop => prop in div.style).length;
 })();
 
+const forceLineClampSupport = (support) => {
+  isLineClampSupport = support;
+};
+
 const getClampProps = ({ mode, level, lineClamp, className }) => {
   const props = {};
   let clamp = false;
   if (mode === 'inline' || (mode === 'vertical' && level === 1)) {
-    if (isLineClampSupport && lineClamp > 1) {
+    if ((isLineClampSupport) && lineClamp > 1) {
       const style = {};
       style.WebkitLineClamp = lineClamp;
       style.lineClamp = lineClamp;
@@ -24,5 +28,6 @@ const getClampProps = ({ mode, level, lineClamp, className }) => {
 };
 
 export default {
+  forceLineClampSupport,
   getClampProps,
 };
