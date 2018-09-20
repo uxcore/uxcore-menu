@@ -79,6 +79,9 @@
     line-height: @menu-line-height-base;
     padding: 8px 24px;
     transition: all .3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &-submenu,
@@ -94,6 +97,24 @@
   &-submenu &-sub {
     cursor: initial;
     transition: background .3s ease-in-out, padding .3s ease-in-out;
+  }
+
+  &-submenu-title {
+    &-text {
+      display: block;
+      margin-right: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .kuma-icon {
+        float: left;
+      }
+      .kuma-icon + span {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
 
   &-item > a {
@@ -116,6 +137,16 @@
       right: 0;
       content: '';
     }
+  }
+
+  &-clamp-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
   }
 
   &-item-divider {
@@ -335,11 +366,11 @@
   &-inline {
     .@{__menuPrefixCls}-item {
       position: relative;
+      padding: 0 16px;
     }
 
     .@{__menuPrefixCls}-item,
     .@{__menuPrefixCls}-submenu-title {
-      padding: 0 16px;
       font-size: @menu-font-size-base;
       line-height: @menu-item-height;
       height: @menu-item-height;
@@ -347,6 +378,10 @@
       margin-bottom: 4px;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .@{__menuPrefixCls}-submenu-title {
+      padding: 0 12px 0 16px;
     }
 
     // disable margin collapsed
@@ -362,6 +397,13 @@
     > .@{__menuPrefixCls}-submenu > .@{__menuPrefixCls}-submenu-title {
       line-height: @menu-inline-toplevel-item-height;
       height: @menu-inline-toplevel-item-height;
+    }
+
+    .@{__menuPrefixCls}-submenu-clamp .@{__menuPrefixCls}-submenu-title,
+    > .@{__menuPrefixCls}-submenu-clamp > .@{__menuPrefixCls}-submenu-title,
+    .@{__menuPrefixCls}-item-clamp,
+    > .@{__menuPrefixCls}-item-clamp {
+      height: auto;
     }
   }
 
@@ -418,9 +460,11 @@
   &-item-group-list {
     margin: 0;
     padding: 0;
-    .@{__menuPrefixCls}-item,
-    .@{__menuPrefixCls}-submenu-title {
+    .@{__menuPrefixCls}-item {
       padding: 0 16px 0 24px;
+    }
+    .@{__menuPrefixCls}-submenu-title {
+      padding: 0 12px 0 24px;
     }
   }
 
@@ -444,6 +488,11 @@
       height: @menu-item-height;
       list-style-type: disc;
       list-style-position: inside;
+    }
+
+    & > .@{__menuPrefixCls}-item-clamp,
+    & > .@{__menuPrefixCls}-submenu-clamp > .@{__menuPrefixCls}-submenu-title {
+      height: auto;
     }
 
     & .@{__menuPrefixCls}-item-group-title {

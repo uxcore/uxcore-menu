@@ -64,6 +64,7 @@ http://uxcore.github.io/uxcore/components/menu/
 | onClose | 同 onOpenChange，为了兼容旧版本保留的方法，将来会移除。参数 {openKeys} 对象 | function | 无 |
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key} | function | 无 |
 | style | 根节点样式 | object |  |
+| lineClamp | 文字行数，超出则显示省略号（仅在 inline 模式下且支持 line-clamp 属性的浏览器上生效） | number | 1 |
 
 ### Item
 

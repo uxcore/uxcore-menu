@@ -7,19 +7,24 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcMenu, { Item, Divider, ItemGroup } from 'rc-menu';
+import RcMenu, { Divider } from 'rc-menu';
 import cssAnimation from 'css-animation';
 import SubMenu from './SubMenu';
+import Item from './Item';
+import ItemGroup from './ItemGroup';
 
 /* eslint-disable no-param-reassign */
 
 class Menu extends React.Component {
   getChildContext() {
     return {
+      mode: this.props.mode,
+      level: this.props.level,
       prefixCls: this.props.prefixCls,
       theme: this.props.className
         ? this.props.className.replace(`${this.props.prefixCls}-`, '')
         : '',
+      lineClamp: this.props.lineClamp,
     };
   }
 
@@ -51,7 +56,7 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
-    const { onOpen, onClose, ...props } = this.props;
+    const { onOpen, onClose, lineClamp, ...props } = this.props;
 
     const openAnimation = {
       enter(node, done) {
@@ -95,28 +100,35 @@ class Menu extends React.Component {
 
 Menu.defaultProps = {
   mode: 'vertical',
+  level: 1,
   prefixCls: 'kuma-menu',
   onOpen: () => {},
   onClose: () => {},
   onOpenChange: () => {},
   inlineIndent: 14,
+  lineClamp: 1,
   className: '',
   openAnimation: 'zoom',
 };
 
 Menu.propTypes = {
   mode: PropTypes.string,
+  level: PropTypes.number,
   prefixCls: PropTypes.string,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   onOpenChange: PropTypes.func,
+  lineClamp: PropTypes.number,
   className: PropTypes.string,
   openAnimation: PropTypes.string,
 };
 
 Menu.childContextTypes = {
+  mode: PropTypes.string,
+  level: PropTypes.number,
   prefixCls: PropTypes.string,
   theme: PropTypes.string,
+  lineClamp: PropTypes.number,
 };
 
 Menu.ItemGroup = ItemGroup;
