@@ -14,11 +14,12 @@ const getClampProps = ({ mode, level, lineClamp, className }) => {
   const props = {};
   let clamp = false;
   if (mode === 'inline' || (mode === 'vertical' && level === 1)) {
-    if ((isLineClampSupport) && lineClamp > 1) {
+    if (isLineClampSupport && lineClamp > 1) {
       const style = {};
       style.WebkitLineClamp = lineClamp;
       style.lineClamp = lineClamp;
       style.WebkitBoxOrient = 'vertical';
+      style.boxOrient = 'vertical';
       props.style = style;
       props.className = className;
       clamp = true;
