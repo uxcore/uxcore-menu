@@ -1,6 +1,6 @@
 # History
 
-## 4.0.3 / 2018-09-17
+## 4.0.3 / 2018-09-20
 
 * `NEW` add new props `lineClamp`
 * `CHANGED` item && icon padding
