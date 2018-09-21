@@ -117,7 +117,8 @@
     }
   }
 
-  &-item > a {
+  &-item > a,
+  &-item > span > a {
     display: block;
     color: @menu-text-color;
     &:hover {
@@ -178,7 +179,9 @@
   &-item-selected {
     color: @menu-primary-color;
     > a,
-    > a:hover {
+    > a:hover,
+    > span > a,
+    > span > a:hover {
       color: @menu-primary-color;
     }
   }
@@ -317,7 +320,8 @@
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
     color: @menu-primary-color;
-    > a {
+    > a,
+    > span > a {
       color: @menu-primary-color;
     }
   }
@@ -343,7 +347,8 @@
         ///color: @menu-primary-color;
       }
 
-      > a {
+      > a,
+      > span > a {
         display: block;
         color: @menu-text-color;
         &:hover {
@@ -513,7 +518,8 @@
     cursor: not-allowed;
     background: none;
     border-color: transparent !important;
-    > a {
+    > a,
+    > span > a {
       color: @menu-disabled-color !important;
       pointer-events: none;
     }

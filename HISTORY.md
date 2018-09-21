@@ -1,5 +1,9 @@
 # History
 
+## 4.0.4 / 2018-09-21
+
+* `FIXED` link style
+
 ## 4.0.3 / 2018-09-20
 
 * `NEW` add new props `lineClamp`
