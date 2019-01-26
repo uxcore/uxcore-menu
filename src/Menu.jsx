@@ -17,14 +17,21 @@ import ItemGroup from './ItemGroup';
 
 class Menu extends React.Component {
   getChildContext() {
+    const {
+      mode,
+      level,
+      prefixCls,
+      className,
+      lineClamp,
+    } = this.props;
     return {
-      mode: this.props.mode,
-      level: this.props.level,
-      prefixCls: this.props.prefixCls,
-      theme: this.props.className
-        ? this.props.className.replace(`${this.props.prefixCls}-`, '')
+      mode,
+      level,
+      prefixCls,
+      theme: className
+        ? className.replace(`${prefixCls}-`, '')
         : '',
-      lineClamp: this.props.lineClamp,
+      lineClamp,
     };
   }
 
@@ -56,7 +63,9 @@ class Menu extends React.Component {
 
   render() {
     const me = this;
-    const { onOpen, onClose, lineClamp, ...props } = this.props;
+    const {
+      onOpen, onClose, lineClamp, ...props
+    } = this.props;
 
     const openAnimation = {
       enter(node, done) {
@@ -102,9 +111,12 @@ Menu.defaultProps = {
   mode: 'vertical',
   level: 1,
   prefixCls: 'kuma-menu',
-  onOpen: () => {},
-  onClose: () => {},
-  onOpenChange: () => {},
+  onOpen: () => {
+  },
+  onClose: () => {
+  },
+  onOpenChange: () => {
+  },
   inlineIndent: 14,
   lineClamp: 1,
   className: '',
@@ -118,6 +130,10 @@ Menu.propTypes = {
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   onOpenChange: PropTypes.func,
+  inlineIndent: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   lineClamp: PropTypes.number,
   className: PropTypes.string,
   openAnimation: PropTypes.string,

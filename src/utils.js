@@ -6,11 +6,13 @@ let isLineClampSupport = (() => {
   ].filter(prop => prop in div.style).length;
 })();
 
-const forceLineClampSupport = (support) => {
+export function forceLineClampSupport(support) {
   isLineClampSupport = support;
-};
+}
 
-const getClampProps = ({ mode, level, lineClamp, className }) => {
+export function getClampProps({
+  mode, level, lineClamp, className,
+}) {
   const props = {};
   let clamp = false;
   if (mode === 'inline' || (mode === 'vertical' && level === 1)) {
@@ -26,9 +28,4 @@ const getClampProps = ({ mode, level, lineClamp, className }) => {
     }
   }
   return { props, clamp };
-};
-
-export default {
-  forceLineClampSupport,
-  getClampProps,
-};
+}
