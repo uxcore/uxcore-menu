@@ -57,4 +57,6 @@ Item.contextTypes = {
   lineClamp: PropTypes.number,
 };
 
+Item.isMenuItem = true;
+
 export default Item;

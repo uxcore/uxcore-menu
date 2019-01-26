@@ -66,4 +66,6 @@ ItemGroup.contextTypes = {
   lineClamp: PropTypes.number,
 };
 
+ItemGroup.isMenuItemGroup = true;
+
 export default ItemGroup;

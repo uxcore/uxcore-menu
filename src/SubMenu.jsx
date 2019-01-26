@@ -74,4 +74,6 @@ SubMenu.contextTypes = {
   lineClamp: PropTypes.number,
 };
 
+SubMenu.isSubMenu = true;
+
 export default SubMenu;
