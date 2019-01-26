@@ -1,5 +1,9 @@
 # History
 
+## 4.0.5 / 2019-01-26
+
+* `FIXED` submenu selected logic
+
 ## 4.0.4 / 2018-09-21
 
 * `FIXED` link style
