@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { SubMenu as RcSubMenu } from 'rc-menu';
-import { getClampProps } from './utils';
+import { getClampProps, IS_LET_REACT_16 } from './utils';
 
 class SubMenu extends React.Component {
   render() {
@@ -50,7 +50,9 @@ class SubMenu extends React.Component {
       <RcSubMenu
         {...props}
         ref={this.saveSubMenu}
-        popupClassName={classnames(`${prefixCls}-${theme}`)}
+        popupClassName={classnames(`${prefixCls}-${theme}`, {
+          [`${prefixCls}-lte-react16`]: IS_LET_REACT_16,
+        })}
       />
     );
   }
