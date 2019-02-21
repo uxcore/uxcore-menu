@@ -1,3 +1,5 @@
+import { version as ReactVersion } from 'react';
+
 let isLineClampSupport = (() => {
   const div = document.createElement('div');
   return [
@@ -5,6 +7,10 @@ let isLineClampSupport = (() => {
     'WebkitLineClamp',
   ].filter(prop => prop in div.style).length;
 })();
+
+const [ReactMajorVersion] = ReactVersion.split('.');
+
+export const IS_LET_REACT_16 = parseInt(ReactMajorVersion, 10) < 16;
 
 export function forceLineClampSupport(support) {
   isLineClampSupport = support;

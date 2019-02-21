@@ -9,9 +9,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RcMenu, { Divider } from 'rc-menu';
 import cssAnimation from 'css-animation';
+import classnames from 'classnames';
 import SubMenu from './SubMenu';
 import Item from './Item';
 import ItemGroup from './ItemGroup';
+import { IS_LET_REACT_16 } from './utils';
 
 /* eslint-disable no-param-reassign */
 
@@ -64,8 +66,18 @@ class Menu extends React.Component {
   render() {
     const me = this;
     const {
-      onOpen, onClose, lineClamp, ...props
+      onOpen,
+      onClose,
+      lineClamp,
+      prefixCls,
+      className,
+      ...props
     } = this.props;
+
+    props.prefixCls = prefixCls;
+    props.className = classnames(className, {
+      [`${prefixCls}-lte-react16`]: IS_LET_REACT_16,
+    });
 
     const openAnimation = {
       enter(node, done) {
