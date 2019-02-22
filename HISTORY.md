@@ -1,6 +1,6 @@
 # History
 
-## 4.0.6 / 2019-02-21
+## 4.0.7 / 2019-02-22
 
 * `FIXED` submenu selected logic
 

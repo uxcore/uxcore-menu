@@ -317,30 +317,26 @@
   }
 
   &-lte-react16 {
-    &,
-    .@{__menuPrefixCls}-submenu {
-      &-vertical {
-        position: relative;
+    .@{__menuPrefixCls}-vertical {
+      position: relative;
 
-        &.@{__menuPrefixCls}-submenu-active {
-          &:before,
-          &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 5px;
-          }
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 5px;
+        visibility: visible;
+      }
 
-          &:before {
-            left: -5px;
-          }
+      &:before {
+        left: -5px;
+      }
 
-          &:after {
-            right: -5px;
-          }
-        }
+      &:after {
+        right: -5px;
       }
     }
   }
